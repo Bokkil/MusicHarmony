@@ -1,0 +1,513 @@
+html,body{
+ height: 100%
+}
+body{
+ margin : 0;
+ padding: 0;
+ overflow-y:scroll;
+ /*text-align:center;*/
+}
+
+.clear{
+  clear: both;
+}
+.right{
+  float: right;
+}
+.left{
+  float: left;
+}
+.center{
+  text-align: center;
+}
+.middleArea{
+ /*width: 1280px;*/
+ width: 1440px;
+ /*width: 70%;*/
+ margin: 0 auto;
+}
+.middleAreaFullWidth{
+ /*width: 1024px;*/
+ /*width: 1400px;*/
+ width: 98%;
+ margin: 0 auto;
+}
+#content{
+  margin: 0 auto;
+}
+
+/*///////////////////////  harmony-chart ///////////////////////////*/
+.bar-area{
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 50px;
+}
+#new-upload-bar-img{
+  content:url("/images/main/background/bar-harmonyChart.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.under-bar-line{
+  content:url("/images/main/background/underbar.png") no-repeat center;
+  margin-top: 50px;
+  width: 100%
+}
+.under-bar-line-shot{
+    width: 100%;
+    height: 3px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.hr-underBar{
+ margin-top: 0px;
+ border-top: 1px solid #C6C4C4;
+ clear: both;
+}
+
+#recent-text{
+ text-align: center;
+ color: white;
+ background-color: rgb(242, 103, 123);
+ width: 100px;
+ margin: 0 auto;
+ margin-top: 100px;
+}
+
+#project-information-textarea{
+ width: 100%
+}
+#project-list-area{
+ /*width: 40%;
+ float: right;*/
+}
+#input-track-area{
+  width: 356px;
+}
+#input-text-area{
+  width: 356px;
+}
+
+.projcet-img{
+width: 130px;
+height: auto;
+cursor: pointer;
+padding: 0;
+margin-right: 20px;
+}
+.source-player-area{
+  width: 100%;
+  height: 15px;
+}
+
+/*carousel    여기부터 카로셀 //////////////////////////////////////*/
+#myCarousel{
+  height: 510px;
+  border: 1px rgb(90, 90, 90) solid;
+border-radius: 10px;
+background-color: ghostwhite;
+}
+#myCarousel .item{
+  text-align: center;
+  /*height: 380px !important;*/
+  /*height: 475px !important;*/
+  background: transparent;
+}
+#myCarousel .row{
+  display: inline-flex;
+  margin: 0 auto;
+  /*width: 90%;*/
+}
+
+#myCarousel .albumImg-a-thumbnail{
+  margin-bottom: 0px;
+  padding: 0px;
+  border: 0px;
+  background-color: transparent;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+#myCarousel .form-group {
+  margin-bottom: 0px;
+}
+
+#myCarousel .carousel-side-width{
+  width: 5%;
+}
+
+#myCarousel .carousel-control{
+  color: #868686;
+}
+#myCarousel .carousel-control.right{
+  background: transparent;
+}
+#myCarousel .carousel-control.left{
+  background: transparent;
+}
+#myCarousel .carousel-indicators .active{
+  background-color: #868686;
+}
+#myCarousel .carousel-indicators {
+  /*bottom: -30px;*/
+}
+#myCarousel .carousel-indicators li{
+  border: 1px solid #868686;
+}
+
+#myCarousel .carousel-control, .glyphicon-chevron-right .glyphicon-chevron-left{
+  margin-top: -50px;
+}
+#myCarousel .caro-right{
+  margin-top: 50px;
+  margin-left: 15px;
+width: 60%;
+}
+#myCarousel .album_img_left{
+  margin: 0;
+  margin-top: 65px;
+  margin-bottom: 50px;
+margin-left: 95px;
+  width: 371px;
+}
+#myCarousel .img-radius{
+ border-radius: 5%;
+}
+#myCarousel .img-over-info-left{
+  position: absolute;
+margin-top: -195px;
+width: 370px;
+height: 145px;
+text-align: left;
+background-color: black;
+opacity: 0.6;
+border-bottom-left-radius: 19px;
+border-bottom-right-radius: 19px;
+}
+#myCarousel .img-over-info-left-content{
+margin-left: 50px;
+margin-top: 30px;
+}
+#myCarousel .img-over-info-left-content-artist{
+color: darkseagreen;
+}
+#myCarousel .img-over-info-left-content-title{
+color: white;
+}
+
+#myCarousel .img-over-info-right{
+position: absolute;
+margin-top: -40px;
+width: 177px;
+height: 40px;
+text-align: left;
+background-color: black;
+opacity: 0.6;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+}
+#myCarousel .img-over-info-right-content{
+margin-left: 30px;
+/*margin-top: 30px;*/
+}
+
+#myCarousel .img-over-info-right-content-artist{
+color: white;
+}
+
+#myCarousel .carousel-control .slide-left-button{
+width: 19px;
+height: auto;
+margin-top: -15px;
+margin-left: -15px;
+font-size: 30px;
+left: 50%;
+position: absolute;
+top: 50%;
+z-index: 5;
+display: inline-block;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+content: url("/images/main/button/slide-left.png") no-repeat center;
+background-size: contain;
+}
+#myCarousel .carousel-control .slide-right-button{
+width: 19px;
+height: auto;
+margin-top: -15px;
+margin-right: -15px;
+font-size: 30px;
+right: 50%;
+position: absolute;
+top: 50%;
+z-index: 5;
+display: inline-block;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+content: url("/images/main/button/slide-right.png") no-repeat center;
+background-size: contain;
+}
+/* 여기까지 카로셀 //////////////////////////////////*/
+.chart-list-margin{
+  padding-left: 50px;
+}
+#scale-view{
+  margin : 0;
+  padding: 0;
+  width: 100%;
+  height: 65px;
+  border-style:solid;
+  border-width:1px;
+}
+
+#beat-bar{
+  margin : 0;
+  padding: 0;
+  width: 100%;
+  height: 45px;
+  border-style:solid;
+  border-width:1px;
+}
+
+#track-view{
+  margin : 0;
+  padding: 0;
+  width: 100%;
+  height: 360px;
+  border-style:solid;
+  border-width:1px;
+}
+
+#track{
+  right: 83.33333333%;
+  margin : 0;
+  padding: 0;
+  width: 100%;
+  height: 90px;
+  border-style:solid;
+  border-width:1px;
+}
+
+#track-control{
+  width: 16.66666667%;
+  margin : 0;
+  padding: 0;
+  width: 100%;
+  height: 90px;
+  border-style:solid;
+  border-width:1px;
+}
+#meta-viewer{
+  width: 180px;
+  height: 60px;
+  float: left;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 2em;
+}
+
+#project-list{
+  margin: 0 auto;
+}
+.projectinfo-postion{
+  padding: 0;
+}
+.img-radius{
+ border-radius: 5%;
+}
+/*///////////////////////  artist-ranking  ///////////////////////////*/
+.content-left{
+  width: 1140px;
+  float: left;
+}
+.nav-tabs > li {
+float: left;
+margin-bottom: -1px;
+width: 142.5px;
+}
+.nav-tabs > li.active > a{
+  text-align: center;
+  background-image: url("/images/main/button/artistRanking-selectButton-back.png");
+   background-repeat: no-repeat; 
+}
+.nav-tabs > li > a{
+  text-align: center;
+    background-image: url("/images/main/button/artistRanking-defaultButton-back.png");
+   background-repeat: no-repeat; 
+}
+#artist-ranking-bar-img{
+  content:url("/images/main/background/bar-artistRanking.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-area-row{
+  height: 218px;
+}
+.rank-td1{
+  width: 96px;
+}
+.rank-td2{
+  width: 218px;
+}
+.rank-td3{
+  width: 109px;
+}
+.rank-td4{
+  width: 93px;
+  padding-bottom: 7.5px;
+}
+.rank-projcet-img{
+  cursor: pointer;
+padding: 0;
+}
+.rank-button{
+  width: 18px;
+height: 18px;
+border-radius: 5px;
+margin-right: 5px;
+margin-top: 30px;
+}
+.rank-play-add-button{
+background-image: url("/images/main/button/add-play-button.png");
+}
+.rank-download-button{
+background-image: url("/images/main/button/download-button.png");
+}
+.rank-like-button{
+background-image: url("/images/main/button/good-button-rank.png");
+}
+.rank-title > h3{
+  font-size: 22px;
+  color: palevioletred;
+}
+.rank-info > h3{
+  font-size: 22px;
+}
+.rank-projcet-img-small{
+  cursor: pointer;
+padding: 0;
+  width: 100%;
+}
+
+.rank-1{
+  content:url("/images/main/background/ar-1.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-2{
+  content:url("/images/main/background/ar-2.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-3{
+  content:url("/images/main/background/ar-3.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-4{
+  content:url("/images/main/background/ar-4.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-5{
+  content:url("/images/main/background/ar-5.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-6{
+  content:url("/images/main/background/ar-6.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-7{
+  content:url("/images/main/background/ar-7.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-8{
+  content:url("/images/main/background/ar-8.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-9{
+  content:url("/images/main/background/ar-9.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+.rank-10{
+  content:url("/images/main/background/ar-10.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+
+/*///////////////////////  myProject  ///////////////////////////*/
+.content-left-mp{
+  width: 1080px;
+  float: left;
+}
+#myProject-bar-img{
+  content:url("/images/main/background/bar-myProject.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+
+/*///////////////////////  timeline  ///////////////////////////*/
+#timeline-bar-img{
+    content:url("/images/main/background/bar-timeline.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+
+/*///////////////////////  project - info  ///////////////////////////*/
+#projectInfo-bar-img{
+    content:url("/images/main/background/bar-projectInfo.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+/*///////////////////////  user - info  ///////////////////////////*/
+#userInfo-bar-img{
+    content:url("/images/main/background/bar-userInfo.png") no-repeat center;
+  background-size: contain;
+  width: 100%
+}
+
+/*///////////////////////  player  ///////////////////////////*/
+#header{
+  margin-top: 40px;
+}
+#navbar-fixed-area{
+  width: 100%;
+  height: 40px;
+  background-color: whitesmoke;
+}
+div.jp-audio,
+div.jp-video {
+  /* Edit the font-size to counteract inherited font sizing.
+   * Eg. 1.25em = 1 / 0.8em
+   */
+  font-size:1.25em;
+}
+
+/*///////////////////////  create project  ///////////////////////////*/
+.create_project_frame_div{
+/* text-align: right;*/
+/* float: left;*/
+/* text-align: right; */
+/* float: left; */
+/* position: fixed;*/
+/* top: 39px; */
+/* right: 0; */
+/* left: 0; */
+/* z-index: 1030; */
+}
+/*///////////////////////  my play list  ///////////////////////////*/
+.my-play-list-area{
+float: left;
+}
+.my-play-list{
+  position: fixed;
+top: 342px;
+width: 300px;
+height: auto;
+background-color: black;
+}
+
