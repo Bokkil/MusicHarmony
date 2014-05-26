@@ -62,8 +62,34 @@ include("$base_dir/main/artistRanking/artistRanking-connect.php");
   </div>
 </div>
 
-<div class="my-play-list-area">
-  <div class="my-play-list">
-      aaaaaaaaaa
+<div class="side-area-panel panel panel-default right">
+  <!-- Default panel contents -->
+  <div class="side-banner">
+    <div class="myFavoriteListBanner-img"></div>
   </div>
+
+  <!-- List group -->
+  <ul id="list-group-item" class="list-group">
+    <?php
+    include("/home/mh/soma/webpage/main/favorite_connect.php");
+    for($i=0; $i<$q_favoritelist_count; $i++){
+    echo("
+    <li class=\"list-group-item\">
+      <div class=\"favoriteList-project row\">
+        <div class=\"favoriteList-add col-md-2\">
+          <a type=\"button\" onclick=\"play_add($favoritelist_pro_dbproject_id[$i], '$favoritelist_pro_dbTITLE[$i]', '$favoritelist_pro_dbARTIST[$i]', '$favoritelist_pro_dbSOUND_PATH[$i]')\" class=\"favoritelist-button rank-play-add-button\"></a>
+        </div>
+        <div class=\"favoriteList-title-artist col-md-8\">
+          <div onclick=\"getAlbumInfo($favoritelist_pro_dbproject_id[$i]);\" class=\"favoriteList-title col-md-6\">$favoritelist_pro_dbTITLE[$i]</div>
+          <div onclick=\"user_info($favoritelist_pro_dbpri_user_id[$i]);\" class=\"favoriteList-artist col-md-6\">$favoritelist_pro_dbARTIST[$i]</div>
+        </div>
+        <div class=\"favoriteList-delete col-md-2\">
+          <a type=\"button\" onclick=\"favorite_delete($favoritelist_pro_dbproject_id[$i])\" class=\"favoritelist-button favorite-delete-button\"></a>
+        </div>
+      </div>
+    </li>
+    ");
+     }
+    ?>
+  </ul>
 </div>

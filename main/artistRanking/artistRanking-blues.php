@@ -6,12 +6,13 @@
     <td class="rank-td2"><?php echo("<img onclick=\"getAlbumInfo($blues_pro_dbid[$i]);\" class=\"rank-projcet-img\" src=\"/uploads/albumImg/$blues_pro_dbALBUM_IMAGE_PATH[$i]\"/>");?></td>
     <td>
       <?php echo("
-      <button class=\"rank-button rank-play-add-button\"></button>
-      <button class=\"rank-button rank-download-button\"></button>
-      <button onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></button>
+      <a type=\"button\" onclick=\"session_play_add($blues_pro_dbid[$i], '$blues_pro_dbTITLE[$i]', '$blues_pro_dbARTIST[$i]', '$blues_pro_dbSOUND_PATH[$i]')\" class=\"rank-button rank-play-add-button\"></a>
+      <a href=\"/uploads/music/$blues_pro_dbSOUND_PATH[$i]\" download=\"$blues_pro_dbSOUND_PATH[$i]\" type=\"button\" class=\"rank-button rank-download-button\"></a>
+      <a type=\"button\" onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></a>
       "); ?>
       <br>
       <div class="rank-title"><h3><?php echo("$blues_pro_dbTITLE[$i] - $blues_pro_dbARTIST[$i]"); ?></h3></div>
+      <div class="rank-info"><h4><?php echo("$blues_pro_dbSOUND_PATH[$i]"); ?></h4></div>
       <div class="rank-info"><h3><?php echo("$blues_pro_dbPROJECT_INFO[$i]"); ?></h3></div>
     </td>
     <?php
@@ -49,12 +50,13 @@
     <td class="rank-td2"><?php echo("<img onclick=\"getAlbumInfo($blues_pro_dbid[$i]);\" class=\"rank-projcet-img\" src=\"/uploads/albumImg/$blues_pro_dbALBUM_IMAGE_PATH[$i]\"/>");?></td>
     <td>
       <?php echo("
-      <button class=\"rank-button rank-play-add-button\"></button>
-      <button class=\"rank-button rank-download-button\"></button>
-      <button onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></button>
+      <a type=\"button\" onclick=\"session_play_add($blues_pro_dbid[$i], '$blues_pro_dbTITLE[$i]', '$blues_pro_dbARTIST[$i]', '$blues_pro_dbSOUND_PATH[$i]')\" class=\"rank-button rank-play-add-button\"></a>
+      <a href=\"/uploads/music/$blues_pro_dbSOUND_PATH[$i]\" download=\"$blues_pro_dbSOUND_PATH[$i]\" type=\"button\" class=\"rank-button rank-download-button\"></a>
+      <a type=\"button\" onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></a>
       "); ?>
       <br>
       <div class="rank-title"><h3><?php echo("$blues_pro_dbTITLE[$i] - $blues_pro_dbARTIST[$i]"); ?></h3></div>
+      <div class="rank-info"><h4><?php echo("$blues_pro_dbSOUND_PATH[$i]"); ?></h4></div>
       <div class="rank-info"><h3><?php echo("$blues_pro_dbPROJECT_INFO[$i]"); ?></h3></div>
     </td>
     <?php
@@ -92,12 +94,13 @@
     <td class="rank-td2"><?php echo("<img onclick=\"getAlbumInfo($blues_pro_dbid[$i]);\" class=\"rank-projcet-img\" src=\"/uploads/albumImg/$blues_pro_dbALBUM_IMAGE_PATH[$i]\"/>");?></td>
     <td>
       <?php echo("
-      <button class=\"rank-button rank-play-add-button\"></button>
-      <button class=\"rank-button rank-download-button\"></button>
-      <button onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></button>
+      <a type=\"button\" onclick=\"session_play_add($blues_pro_dbid[$i], '$blues_pro_dbTITLE[$i]', '$blues_pro_dbARTIST[$i]', '$blues_pro_dbSOUND_PATH[$i]')\" class=\"rank-button rank-play-add-button\"></a>
+      <a href=\"/uploads/music/$blues_pro_dbSOUND_PATH[$i]\" download=\"$blues_pro_dbSOUND_PATH[$i]\" type=\"button\" class=\"rank-button rank-download-button\"></a>
+      <a type=\"button\" onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></a>
       "); ?>
       <br>
       <div class="rank-title"><h3><?php echo("$blues_pro_dbTITLE[$i] - $blues_pro_dbARTIST[$i]"); ?></h3></div>
+      <div class="rank-info"><h4><?php echo("$blues_pro_dbSOUND_PATH[$i]"); ?></h4></div>
       <div class="rank-info"><h3><?php echo("$blues_pro_dbPROJECT_INFO[$i]"); ?></h3></div>
     </td>
     <?php
@@ -135,12 +138,13 @@
     <td class="rank-td2"><?php echo("<img onclick=\"getAlbumInfo($blues_pro_dbid[$i]);\" class=\"rank-projcet-img\" src=\"/uploads/albumImg/$blues_pro_dbALBUM_IMAGE_PATH[$i]\"/>");?></td>
     <td>
       <?php echo("
-      <button class=\"rank-button rank-play-add-button\"></button>
-      <button class=\"rank-button rank-download-button\"></button>
-      <button onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></button>
+      <a type=\"button\" onclick=\"session_play_add($blues_pro_dbid[$i], '$blues_pro_dbTITLE[$i]', '$blues_pro_dbARTIST[$i]', '$blues_pro_dbSOUND_PATH[$i]')\" class=\"rank-button rank-play-add-button\"></a>
+      <a href=\"/uploads/music/$blues_pro_dbSOUND_PATH[$i]\" download=\"$blues_pro_dbSOUND_PATH[$i]\" type=\"button\" class=\"rank-button rank-download-button\"></a>
+      <a type=\"button\" onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></a>
       "); ?>
       <br>
       <div class="rank-title"><h3><?php echo("$blues_pro_dbTITLE[$i] - $blues_pro_dbARTIST[$i]"); ?></h3></div>
+      <div class="rank-info"><h4><?php echo("$blues_pro_dbSOUND_PATH[$i]"); ?></h4></div>
       <div class="rank-info"><h3><?php echo("$blues_pro_dbPROJECT_INFO[$i]"); ?></h3></div>
     </td>
     <?php
@@ -178,12 +182,13 @@
     <td class="rank-td2"><?php echo("<img onclick=\"getAlbumInfo($blues_pro_dbid[$i]);\" class=\"rank-projcet-img\" src=\"/uploads/albumImg/$blues_pro_dbALBUM_IMAGE_PATH[$i]\"/>");?></td>
     <td>
       <?php echo("
-      <button class=\"rank-button rank-play-add-button\"></button>
-      <button class=\"rank-button rank-download-button\"></button>
-      <button onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></button>
+      <a type=\"button\" onclick=\"session_play_add($blues_pro_dbid[$i], '$blues_pro_dbTITLE[$i]', '$blues_pro_dbARTIST[$i]', '$blues_pro_dbSOUND_PATH[$i]')\" class=\"rank-button rank-play-add-button\"></a>
+      <a href=\"/uploads/music/$blues_pro_dbSOUND_PATH[$i]\" download=\"$blues_pro_dbSOUND_PATH[$i]\" type=\"button\" class=\"rank-button rank-download-button\"></a>
+      <a type=\"button\" onclick=\"like_project($blues_pro_dbid[$i])\" class=\"rank-button rank-like-button\"></a>
       "); ?>
       <br>
       <div class="rank-title"><h3><?php echo("$blues_pro_dbTITLE[$i] - $blues_pro_dbARTIST[$i]"); ?></h3></div>
+      <div class="rank-info"><h4><?php echo("$blues_pro_dbSOUND_PATH[$i]"); ?></h4></div>
       <div class="rank-info"><h3><?php echo("$blues_pro_dbPROJECT_INFO[$i]"); ?></h3></div>
     </td>
     <?php

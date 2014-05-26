@@ -10,10 +10,40 @@
 <link rel="shortcut icon" href="/images/main/icon/icon_mh.png" />
 <link rel="apple-touch-icon" href="/images/main/icon/icon_mh.png" />
 
+<!-- font -->
+<link rel="stylesheet" href="/include/css/nanumgothic.css">
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+<script type="text/javascript">
+  WebFont.load({
+    // For google fonts
+    google: {
+      families: ['Droid Sans', 'Droid Serif']
+    }
+    // For early access or custom font
+    custom: {
+        families: ['Nanum Gothic'],
+        urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+    }
+  });
+</script>
+<script language='javascript'>
+function noEvent() {
+if (event.keyCode == 116) {
+event.keyCode= 2;
+return false;
+}
+else if(event.ctrlKey && (event.keyCode==78 || event.keyCode ==
+82))
+{
+return false;
+}
+}
+document.onkeydown = noEvent;
+</script>
 <!-- java script -->
 <script src='/include/js/jquery-2.1.0.min.js'></script>
 <script src='/include/js/bootstrap.js'></script>
-
+<!-- <script src="/include/js/header.js"></script> -->
 <!-- style sheet -->
 <link rel="stylesheet" href="/include/css/bootstrap.css">
 <link rel="stylesheet" href="/include/css/bootstrap-theme.css">

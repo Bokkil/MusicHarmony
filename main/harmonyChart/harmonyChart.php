@@ -1,11 +1,5 @@
-<?PHP
-// header('Content-Type: text/html; charset=utf-8');
-// session_cache_expire(1800);
-// session_start();
-// session_unset();
-?>
 <script>
-$(function(){  
+$(function(){
     var menu_group = $('#menu-btn-group');
     menu_group.removeClass('menu_none');
     menu_group.removeClass('menu_atb');

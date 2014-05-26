@@ -1,34 +1,35 @@
 <script type="text/javascript">
   var userId = "<?PHP echo $_SESSION["user_id"]; ?>";
-
   var pro_dbid = new Array();
   var pro_dbGOOD_COUNT = new Array();
   var pro_dbDOWNLOAD_COUNT = new Array();
   var pro_dbPLAY_COUNT = new Array();
   var pro_dbPLAY_TIME = new Array();
-
   var pro_dbcreated_at = new Array();
   var pro_dbupdated_at = new Array();
   var pro_dbALBUM_IMAGE_PATH = new Array();
   var pro_dbTITLE = new Array();
   var pro_dbARTIST = new Array();
-
   var pro_dbPROJECT_INFO = new Array();
   var pro_dbmeta_num = new Array();
   var pro_dbpri_user_id = new Array();
   var pro_dbGENRE = new Array();
-
   var query_count=0;
 </script>
-
 <?PHP
-include_once ("$base_dir/include/config/config.php");
+// include("$base_dir/include/config/config.php");
+// include_once ("$base_dir/include/config/config.php");
+$db_host    = "localhost";
+$db_user    = "mh";
+$db_password  = "thak2014";
+$db_dbname  = "mh";
+$db_conn    = mysql_connect($db_host, $db_user, $db_password);
+mysql_select_db($db_dbname, $db_conn);
+
 $q="select * from projects order by created_at desc limit 28;";
 $sql_result=mysql_query($q, $db_conn);          //질의(위 내용)를 수행하라.
 $count=mysql_num_rows($sql_result);
 echo("<script>query_count=$count;</script>");
-
-//mysql_result(쿼리실행결과, 행번호, 변수값) : 결과값을 행 단위로 화면에 출력해주는 함수.
 for($i=0; $i<$count; $i++)
 {
   $pro_dbid[$i]=mysql_result($sql_result, $i, 'id');
@@ -48,7 +49,6 @@ for($i=0; $i<$count; $i++)
   $pro_dbpri_user_id[$i]=mysql_result($sql_result, $i, 'pri_user_id');
   $pro_dbGENRE[$i]=mysql_result($sql_result, $i, 'GENRE');
 }
-
 echo("<script>var num=0;</script>");
 for($i = 0 ; $i < $count; $i++){
   echo ("<script>

@@ -62,15 +62,8 @@
           alert('The File APIs are not fully supported in this browser.');
         }
 
-        var oReq = new XMLHttpRequest();
-        oReq.open("GET", "http://172.16.100.76/uploads/source/1.mp3", true);
-        oReq.responseType = "blob";
-        oReq.onload = function(oEvent) {
-          var blob = oReq.response;
-          console.log(blob);
-          Audiee.Player.preloadFile(blob, this.el);
-        };
-        oReq.send();
+        var network = new Network();
+        network.connect();     
       },
 
       render: function() {
@@ -259,5 +252,6 @@
         .width(680).css('max-height', 530 + 'px')
         .modal();           // show the modal window
       }
+      
     });
   });

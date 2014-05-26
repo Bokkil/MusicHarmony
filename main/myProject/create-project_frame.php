@@ -16,20 +16,18 @@ session_start();
 <link rel="stylesheet" href="/include/css/bootstrap.css">
 <link rel="stylesheet" href="/include/css/bootstrap-theme.css">
 <link rel="stylesheet" href="/include/css/layout.css">
-<link rel="stylesheet" href="/include/css/normal.css">
-<link rel="stylesheet" href="/include/css/detail.css">
-
 </head>
 <body>
 <!-- <button class="top-menu-btn menu-btn menu-area-background buttonBackground" id="timelineButton2" name="timelineButton">timeline button</button> -->
-
+<div class="side-banner">
+    <div class="createProject-img"></div>
+</div>
 <div class="bs-example" style="width: 100%;position: absolute;">
   <!-- <form class="contact_form" id="project-create" action="./myProject/create-project_connect2.php" method="post" enctype="multipart/form-data"
   > -->
   <form class="contact_form" id="project-create" action="/main/myProject/create-project_connect.php" method="post" enctype="multipart/form-data"
   >
   <fieldset>
-    <legend>Create Project</legend>
     <div id="temp">
       <!-- <span class="help-block">Please complete here.</span> -->
       <div class="form-group">
@@ -67,12 +65,12 @@ session_start();
         <textarea id="project-information-textarea" type="text" name="PROJECT_INFO" placeholder="Project Information"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-xs pull-right">submit</button>
+      <button type="submit" class="btn btn-sm create-project-button">Submit</button>
     </div>
   </fieldset>
 </form>
 </div>
 </body>
-
+</html>
 
  

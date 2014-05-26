@@ -4,23 +4,6 @@ session_cache_expire(1800);
 session_start();
 // session_unset();
 ?>
-
-<script type="text/javascript">
-  var user_id = "<?PHP echo $_SESSION["user_id"]; ?>";
-
-  var user_NAME;
-  var user_EMAIL;
-  var user_PART;
-  var user_AFFILIATE_BAND;
-  var user_PICTURE;
-
-  var user_created_at;
-  var user_updated_at;
-  var user_INFO;
-
-  var query_count=0;
-</script>
-
 <?PHP
 $db_host    = "localhost";
 $db_user    = "mh";
@@ -28,56 +11,46 @@ $db_password  = "thak2014";
 $db_dbname  = "mh";
 $db_conn    = mysql_connect($db_host, $db_user, $db_password);
 mysql_select_db($db_dbname, $db_conn);
-
 // $base_dir = "/home/mh/soma/webpage";
 // include("$base_dir/include/config/config.php");
-
-
 $user_id = $_SESSION["user_id"];
-$q="select * from users where id=$user_id";
-$sql_result=mysql_query($q, $db_conn);          //질의(위 내용)를 수행하라.
-$count=mysql_num_rows($sql_result);
-echo("<script>query_count=$count;</script>");
 
-$user_NAME=mysql_result($sql_result, 0 , 'NAME');
-$user_EMAIL=mysql_result($sql_result, 0 , 'EMAIL');
-$user_PART=mysql_result($sql_result, 0 , 'PART');
-$user_AFFILIATE_BAND=mysql_result($sql_result, 0 , 'AFFILIATE_BAND');
-$user_PICTURE=mysql_result($sql_result, 0 , 'PICTURE');
-
-$user_created_at=mysql_result($sql_result, 0 , 'created_at');
-$user_updated_at=mysql_result($sql_result, 0 , 'updated_at');
-$user_INFO=mysql_result($sql_result, 0 , 'INFO');
-
-echo("<script>
-          user_NAME = '$user_NAME';
-          user_EMAIL = '$user_EMAIL';
-          user_PART = '$user_PART';
-          user_AFFILIATE_BAND = '$user_AFFILIATE_BAND';
-          user_PICTURE = '$user_PICTURE';
-
-          user_created_at = '$user_created_at';
-          user_updated_at = '$user_updated_at';
-          user_INFO = '$user_INFO';
-       </script>");
+// $q2="select projects.*, sounds.id as sound_id, sounds.pri_user_id as sound_upload_user_id, sounds.SOUND_PATH from projects, sounds where projects.pri_user_id=$user_id and projects.id=sounds.project_id;";
+$q2="select * from projects where projects.pri_user_id=$user_id;";
+$sql_result2=mysql_query($q2, $db_conn);          //질의(위 내용)를 수행하라.
+$count2=mysql_num_rows($sql_result2);
+for($i=0; $i<$count2; $i++)
+{
+  $relation_pro_dbid[$i]=mysql_result($sql_result2, $i, 'id');
+  $relation_pro_dbALBUM_IMAGE_PATH[$i]=mysql_result($sql_result2, $i, 'ALBUM_IMAGE_PATH');
+  $relation_pro_dbTITLE[$i]=mysql_result($sql_result2, $i, 'TITLE');
+  $relation_pro_dbARTIST[$i]=mysql_result($sql_result2, $i, 'ARTIST');
+  $relation_pro_dbPROJECT_INFO[$i]=mysql_result($sql_result2, $i, 'PROJECT_INFO');
+  $relation_pro_dbpri_user_id[$i]=mysql_result($sql_result2, $i, 'pri_user_id');
+  // $relation_pro_dbsound_id[$i]=mysql_result($sql_result2, $i, 'sound_id');
+  // $relation_pro_dbSOUND_PATH[$i]=mysql_result($sql_result2, $i, 'SOUND_PATH');
+}
 ?>
-<div class="bar-area">
-  <img id="userInfo-bar-img"></img>
-</div>
-
-<div>
-  <div class="bs-example">
-    <legend>My Infomation</legend>
-    <div id="project-comments">
-      <div class="col-md-12">
-      </div>
+<div class="content-left">
+  <div class="info-area-back">
+  </div>
+  <div class="user-info-area">
+    <div class="bar-area">
+      <legend class="user-infomation-title">My Infomation</legend>
+    </div>
+    <?php echo("<iframe src='/main/user/my_info_area.php?a=$user_id' class=\"myinfo-frame\" id=\"myinfo-frame\" name='create-project-frame' scrolling=no></iframe>");?>
   </div>
 </div>
 
-<h3>닉네임 :<?PHP echo($user_NAME);?></h3>
-<h3>이메일 :<?PHP echo($user_EMAIL);?></h3>
-<h3>파트 :<?PHP echo($user_PART);?></h3>
-<h3>소속 :<?PHP echo($user_AFFILIATE_BAND);?></h3>
-<h3>사진 :<?PHP echo($user_PICTURE);?></h3>
-<h3>가입날짜 :<?PHP echo($user_created_at);?></h3>
-<h3>소개 :<?PHP echo($user_INFO);?></h3>
+<div class="side-area-panel panel panel-default right">
+  <!-- Default panel contents -->
+  <div class="side-banner">
+    <div class="userAlbumBanner-img"></div>
+    <?php 
+    for($i=0; $i<$count2; $i++){echo("
+      <a>
+        <img onclick=\"getAlbumInfo($relation_pro_dbid[$i]);\" class=\"user-album img-radius\" src=\"/uploads/albumImg/$relation_pro_dbALBUM_IMAGE_PATH[$i]\"/>
+      </a>
+      ");}?>
+  </div>
+</div>

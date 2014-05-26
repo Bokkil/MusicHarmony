@@ -6,6 +6,55 @@ session_start();
 // session_unset();
 $user_id=$_SESSION["user_id"];
 
+function icone_text($flag)
+{
+  if($flag == 0)
+  {
+    return "<a type=\"button\" class=\"timeline-button timeline-comment-button\"></a>";
+  }
+  else if($flag == 1)
+  {
+    return "<a type=\"button\" class=\"timeline-button timeline-like-button\"></a>";
+  }
+  else if($flag == 2)
+  {
+    return "<a type=\"button\" class=\"timeline-button rank-download-button\"></a>";
+  }
+  else if($flag == 3)
+  {
+    return "<a type=\"button\" class=\"timeline-button rank-download-button\"></a>";
+  }
+  else if($flag == 4)
+  {
+    return "<a type=\"button\" class=\"timeline-button timeline-newtrack-button\"></a>";
+  }
+}
+
+function project_master()
+{
+  $user_id=$_SESSION["user_id"];
+  $master_sql = "select id from projects where pri_user_id='$user_id'";
+  $master_res = mysql_query($master_sql);
+  $master_cnt=mysql_num_rows($master_res);
+
+  if($master_cnt == 0)
+  {
+    return "";
+  }
+  else
+  {
+    $q = "";
+    for($i=0;$i<$master_cnt;$i++)
+    {
+      $master_id = mysql_result($master_res,$i,'id');
+      $q = "$q or project_id = '$master_id'";
+    }
+    // echo($q);
+    return $q;
+
+  }
+}
+
 ?>
 
 <div class="content-left">
@@ -13,12 +62,12 @@ $user_id=$_SESSION["user_id"];
     <img id="timeline-bar-img"></img>
   </div>
 
-  <div class="bs-example normal col-md-11" id="project-list-area-myproject">
-    <legend>Comment & TimeLine</legend>
+  <div class="col-md-12 time-line-group" id="project-list-area-myproject">
     <div id="project-comments" role="form">
       <form class="form-horizontal">
         <?php
-          $sql = "select * from comments where pri_user_id='$user_id' order by created_at desc";
+          $master_projects = project_master();
+          $sql = "select * from comments where pri_user_id='$user_id' $master_projects order by created_at desc;";
           $res = mysql_query($sql);
           $cnt=mysql_num_rows($res);
           $flag = "0000-00-00";
@@ -27,15 +76,15 @@ $user_id=$_SESSION["user_id"];
           {
             $content = mysql_result($res,$i,'CONTENTS');
             $time = mysql_result($res,$i,'created_at');
+            $commenter_id = mysql_result($res,$i, 'pri_user_id');
             $head_time = substr($time, 0,10);
-            
+            $type = mysql_result($res,$i,'TYPE');
+            $project_id = mysql_result($res,$i,'project_id');
+            $icone = icone_text($type);
+
             if($flag != $head_time)
             {
-              $date_form="<div>
-                    <hr style=\"margin-top: 5px; margin-bottom: 5px;\" />
-                      <div style=\"font-size: 16px\">$head_time </div>
-                    <hr style=\"margin-top: 5px; margin-bottom: 15px;\" />
-                  </div>";
+              $date_form="<div class=\"timeline-date\">$head_time </div>";
               $flag = $head_time;
             }
             else
@@ -43,44 +92,78 @@ $user_id=$_SESSION["user_id"];
               $date_form="";
             }
 
-            $sql2 = "select PICTURE from users where id = $user_id;";
+            $sql2 = "select PICTURE, NAME, id from users where id = $commenter_id;";
             $res2 = mysql_query($sql2);
 
-            $picture_path = mysql_result($res2,0);
-            if(!$picture_path)
-              $picture_path = "def";
-            
-            
-            echo("
-              
+            $picture_path = mysql_result($res2,0,'PICTURE');
+            $user_name = mysql_result($res2,0,'NAME');
+            $comment_user_id = mysql_result($res2,0,'id');
+
+            $temp_comment="";
+            if($type==0)
+            {
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $temp_comment=$content;
+              $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
+            }
+
+            echo("  
                <div class=\"form-group\">
                   $date_form
-                  <img \" class=\"projcet-img left\" src=\"/uploads/userImg/$picture_path\"/>
-                  <div>
-                    $content
+                  <img onclick=\"user_info($comment_user_id);\" class=\"timeline-user-img left\" src=\"/uploads/userImg/$picture_path\"/>
+                  <div class=\"col-md-8\">
+                    <h4 onclick=\"user_info($comment_user_id);\" class=\"time-line-user-name\">$user_name</h4>
+                    <label class=\"time-line-label\" onclick=\"getAlbumInfo($project_id);\">
+                      $icone
+                      $content
+                    </label>
+                      <div>
+                        $temp_comment
+                      </div>
                   </div>
 
-                  <div class=\"right\">
+                  <div class=\"right time-line-date\">
                     $time
                   </div>
                 </div>
-                <hr>
               ");
           }
-          // $sql = "select * from users_projects where user_id='$user_id'";
-          // $res = mysql_query($sql);
-          // $cnt=mysql_num_rows($sql_result);
-          // for($i=0;$i<$cnt;$i=$i++)
-          // {
-          //   $project_id=mysql_result($res,$i,'project_id');
-          //   $sql2 = "select * from projects where pri_user_id = '$project_id'";
-          // }
         ?>
       </form>
-      <hr>
     </div>
   </div>
 </div>
-<div id="create_project_frame_div" class="create_project_frame_div">
-  <iframe src='/main/myProject/create-project_frame.php' id="create-project-frame" name='create-project-frame' width="360px" height="450px" scrolling=no frameBorder="0" style="position: fixed; top: 342px;"></iframe>
+
+<div class="side-area-panel panel panel-default right">
+  <!-- Default panel contents -->
+  <div class="side-banner">
+    <div class="myFavoriteListBanner-img"></div>
+  </div>
+
+  <!-- List group -->
+  <ul id="list-group-item" class="list-group">
+    <?php
+    include("/home/mh/soma/webpage/main/favorite_connect.php");
+    for($i=0; $i<$q_favoritelist_count; $i++){
+    echo("
+    <li class=\"list-group-item\">
+      <div class=\"favoriteList-project row\">
+        <div class=\"favoriteList-add col-md-2\">
+          <a type=\"button\" onclick=\"play_add($favoritelist_pro_dbproject_id[$i], '$favoritelist_pro_dbTITLE[$i]', '$favoritelist_pro_dbARTIST[$i]', '$favoritelist_pro_dbSOUND_PATH[$i]')\" class=\"favoritelist-button rank-play-add-button\"></a>
+        </div>
+        <div class=\"favoriteList-title-artist col-md-8\">
+          <div onclick=\"getAlbumInfo($favoritelist_pro_dbproject_id[$i]);\" class=\"favoriteList-title col-md-6\">$favoritelist_pro_dbTITLE[$i]</div>
+          <div onclick=\"user_info($favoritelist_pro_dbpri_user_id[$i]);\" class=\"favoriteList-artist col-md-6\">$favoritelist_pro_dbARTIST[$i]</div>
+        </div>
+        <div class=\"favoriteList-delete col-md-2\">
+          <a type=\"button\" onclick=\"favorite_delete($favoritelist_pro_dbproject_id[$i])\" class=\"favoritelist-button favorite-delete-button\"></a>
+        </div>
+      </div>
+    </li>
+    ");
+     }
+    ?>
+  </ul>
 </div>

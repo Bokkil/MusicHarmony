@@ -9,22 +9,6 @@ $(function(){
       menu_group.addClass('menu_hcb');
       $("#content").load("/main/harmonyChart/harmonyChart.php");
     });
-  // $("img#modeChangeButton").on('click', function(event){
-  //     event.preventDefault();
-
-  //     var containerArea = $('#container');
-  //     if(containerArea.hasClass('normal'))
-  //     { 
-  //       containerArea.removeClass('normal');
-  //       containerArea.addClass('detail');
-  //     }
-  //     else
-  //     {
-  //       containerArea.removeClass('detail');
-  //       containerArea.addClass('normal');
-  //     }
-  //   });
-
   $("img#harmonyChartButton").on('click', function(event){
       event.preventDefault();
       $("#content").load("/main/harmonyChart/harmonyChart.php");
@@ -111,9 +95,28 @@ $(function(){
       $("#content").load("/main/harmonyChart/harmonyChart.php");
   });
 });
-
+function user_info(id){
+      var menu_group = $('#menu-btn-group');
+      menu_group.removeClass('menu_hcb');
+      menu_group.removeClass('menu_atb');
+      menu_group.removeClass('menu_mpb');
+      menu_group.removeClass('menu_tlb');
+      menu_group.addClass('menu_none');
+      if(user_id==id){
+        $("#content").load("/main/user/my_info.php");
+        // $("#content").load("/main/user/user_info.php?a="+id);
+      }
+      else{
+        $("#content").load("/main/user/user_info.php?a="+id);
+      }
+}
 function searchAction(){
   var search_key = document.getElementById("search-box").value;
+  if (search_key=="") {
+    alert("Empty search area!!");
+    // document.getElementById("content").innerHTML="";
+    return;
+  } 
   $("#content").load("/main/search/search.php?a="+search_key);
 }
 
@@ -171,22 +174,35 @@ function searchAction2() {
 /////////////////////////////////////////////////////////////////////////
 
 function getAlbumInfo(id) {
+  var menu_group = $('#menu-btn-group');
+  menu_group.removeClass('menu_hcb');
+  menu_group.removeClass('menu_atb');
+  menu_group.removeClass('menu_mpb');
+  menu_group.removeClass('menu_tlb');
+  menu_group.addClass('menu_none');
   var project_id=id;
   console.log(project_id);
   $("#content").load("/main/myProject/projectInfo.php?a="+project_id);
 }
 
 function callEditProject(id) {
+  var menu_group = $('#menu-btn-group');
+  menu_group.removeClass('menu_hcb');
+  menu_group.removeClass('menu_atb');
+  menu_group.removeClass('menu_mpb');
+  menu_group.removeClass('menu_tlb');
+  menu_group.addClass('menu_none');
   var project_id=id;
-  console.log(project_id);
+  //fullSize();
   // $("#content").load("/edit/edit.php?project_id="+project_id);
   
   // location.replace("/edit/edit.php?project_id="+project_id);
-
+  
   var str= "<iframe src='/edit/edit.php?project_id=";
   str+=project_id;
-  str+="' width='1440px' height='1000px' scrolling=yes frameBorder='0'></iframe>";
+  str+="' width='100%' height='1000px' scrolling=yes frameBorder='0'></iframe>";
   document.getElementById("content").innerHTML = str;
+  //normalSize();
 } 
 
 function like_project(id) {
@@ -205,13 +221,28 @@ function like_project(id) {
               type:"POST",
               url:"/main/goodFunction.php?a="+id,
               success:function(){
-                alert("My Favorite !!"); 
+                alert("Complete for add to my favorite list."); 
+                $("#list-group-item").load("/main/my-favorite-list.php");
               }, error: function(xhr,status,error){
                 alert(error);
               }
               }); 
             });
       }
+    }, error: function(xhr,status,error){
+      alert(error);
+    }
+    }); 
+  }); 
+}
+
+function favorite_delete(pro_id){
+    $(document).ready(function(){
+    jQuery.ajax({
+    type:"POST",
+    url:"/main/favorite_delete.php?a="+pro_id,
+    success:function(){
+      $("#list-group-item").load("/main/my-favorite-list.php");
     }, error: function(xhr,status,error){
       alert(error);
     }
@@ -276,3 +307,99 @@ function like_project3(id) {
  xmlhttp.open('GET','send_coord_post.php?a='+id,true);
     xmlhttp.send();
 }
+
+////////////////////////////////////////////////
+
+function setIFrameHeight(obj)
+{
+  if(obj.contentDocument)
+  {
+    obj.height = obj.contentDocument.body.scrollHeight + 100;
+  } 
+  else 
+  {
+    obj.height = obj.contentWindow.document.body.scrollHeight;
+  }
+}
+
+function callJoin(id)
+{
+
+  $(document).ready(function(){
+    jQuery.ajax({
+    type:"POST",
+    url:"/main/myProject/projectJoinCheck.php?a="+id,
+    success:function(data){
+      console.log(data);
+      if(data>=1){
+        alert("You have already added this project."); 
+      }
+      else{
+            $(document).ready(function(){
+              jQuery.ajax({
+              type:"POST",
+              url:"/main/myProject/projectJoinFunction.php?a="+id,
+              success:function(){
+                alert("Join the Project !!"); 
+              }, error: function(xhr,status,error){
+                alert(error);
+              }
+              }); 
+            });
+      }
+    }, error: function(xhr,status,error){
+      alert(error);
+    }
+    }); 
+  }); 
+}
+
+function down_music(id)
+{
+
+  $(document).ready(function(){
+    jQuery.ajax({
+    type:"POST",url:"/main/myProject/addComment.php?a="+id+"&b=2",
+    success:function()
+    {
+        // alert("thank you!!");
+    }, 
+    error: function(xhr,status,error)
+    {
+        alert(error);
+    }
+    }); 
+  });
+}
+
+// function normalSize(){
+//   var contentArea = $('#content');
+//   contentArea.removeClass('middlefullArea');
+//   //contentArea.addClass('middleArea');
+// }
+
+// function fullSize(){
+//   var contentArea = $('#content');
+//   //contentArea.removeClass('middleArea');
+//   contentArea.addClass('middleFullArea');
+// }
+/////////////////////////////////////info-audio
+
+// $(function(){
+//   $('#audio-player').mediaelementplayer({
+//     alwaysShowControls: true,
+//     features: ['playpause','progress','volume'],
+//     audioVolume: 'horizontal',
+//     audioWidth: 450,
+//     audioHeight: 70,
+//     iPadUseNativeControls: true,
+//     iPhoneUseNativeControls: true,
+//     AndroidUseNativeControls: true
+//   });
+// });
+
+// function file_err()
+// {
+//   windows.alert("file error");
+//   // window.location="/main/user/my_info_area.php";
+// }

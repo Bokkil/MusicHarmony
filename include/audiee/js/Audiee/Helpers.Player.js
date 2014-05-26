@@ -217,26 +217,26 @@
           reader.readAsArrayBuffer(file);
         };
 
-        Player.prototype.preloadFile = function(file, el) {
-          var reader = new FileReader,
-          that   = this;
+      Player.prototype.preloadFile = function(file, el) {
+        var reader = new FileReader,
+        that   = this;
 
-          reader.onloadend = function(e) {
-            if (e.target.readyState == FileReader.DONE) { // DONE == 2
+        reader.onloadend = function(e) {
+          if (e.target.readyState == FileReader.DONE) { // DONE == 2
 
-              var onsuccess = function(audioBuffer) {
-                console.log(audioBuffer);
-                var name = 'this';
-                Audiee.Views.Menu._filePreloaded(audioBuffer);
-              },
-              onerror = function() {
-                alert( "Load was error." );
-              };
-              that.context.decodeAudioData(e.target.result, onsuccess, onerror);
-            }
-          };
-          reader.readAsArrayBuffer(file);
+            var onsuccess = function(audioBuffer) {
+              console.log(audioBuffer);
+              var name = 'this';
+              Audiee.Views.Menu._filePreloaded(audioBuffer);
+            },
+            onerror = function() {
+              alert( "Load was error." );
+            };
+            that.context.decodeAudioData(e.target.result, onsuccess, onerror);
+          }
         };
-        return Player;
-      })();
-    });
+        reader.readAsArrayBuffer(file);
+      };
+      return Player;
+    })();
+  });

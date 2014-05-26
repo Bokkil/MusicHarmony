@@ -7,6 +7,8 @@
 	$email = $_REQUEST['userEmail'];
 	$password = $_REQUEST['userPassword'];
 	$part = $_REQUEST['userPart'];
+	$def_num = mt_rand(1,8);
+	$picture = "user-default-img".$def_num.".png";
 
 	$cost = 10;
 	$salt = ""; 
@@ -15,7 +17,7 @@
 	$salt = '$2a$'.$cost.'$'.$salt.'$';
 	$password = crypt($password, $salt);
 
-	$sql = "Insert into users (NAME,EMAIL,PASSWORD,SALT,PART,created_at) values('$name','$email','$password','$salt' ,'$part',NOW())";
+	$sql = "Insert into users (NAME,EMAIL,PASSWORD,SALT,PART,created_at,PICTURE) values('$name','$email','$password','$salt' ,'$part',NOW(),'$picture')";
 
 	$res = mysql_query($sql); 
 

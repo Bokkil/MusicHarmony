@@ -11,6 +11,7 @@
   <link rel="apple-touch-icon" href="/image/icon/icon_mh.png" />
 
   <!-- java script -->
+  <script type="text/javascript" src="testAPI.js"></script>
   
   <!-- style sheet -->
   <!-- <link rel="stylesheet" href="/include/css/bootstrap.min.css">
@@ -21,7 +22,6 @@
 </head>
 
 <body>
-  <source type="file" id="getmp3" src="/uploads/source/1.mp3">
     <link rel="stylesheet/less" href="/include/audiee/less/style3.css">
     <script src="/include/audiee/js/libs/less-1.2.2.js"></script>
 <!-- <link rel="stylesheet" href="/include/css/layout.css">
@@ -49,8 +49,11 @@
     </div>
   </div>
 </div>
+
 <div class="menubar" id="menu-view">
+  <p>websocket state: <span id="socketState">null</span></p>
   <ul class="nav nav-pills"></ul>
+
 </div>
 <div id="app-frame" class="container-fluid">
   <div class="row-fluid">
@@ -65,6 +68,7 @@
 </div> <!-- /div#app-frame -->
 
 <!-- JavaScript at the bottom for fast page loading -->
+
 <script data-main="/include/audiee/js/main" src="/include/audiee/js/libs/require/require.js"></script>
 </body>
 </html>

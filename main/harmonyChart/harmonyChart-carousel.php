@@ -1,5 +1,3 @@
-<a href="blob:http%3A//www.danieldemmel.me/30c5d8f8-885d-457e-8af7-f971b3cd0885" download="2014-05-08T12:25:20.684Z.wav" class="btn btn-primary">Download</a>
-
 <div class="bar-area">
   <img id="new-upload-bar-img"></img>
 </div>

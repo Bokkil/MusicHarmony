@@ -25,7 +25,6 @@ mysql_select_db($db_dbname, $db_conn);
 // $base_dir = "/home/mh/soma/webpage";
 // include("$base_dir/include/config/config.php");
 
-
 $user_id = $_SESSION["user_id"];
 $q="select * from users where id=$user_id";
 $sql_result=mysql_query($q, $db_conn);          //질의(위 내용)를 수행하라.
@@ -58,11 +57,12 @@ $_SESSION["user_NAME"]=$user_NAME;
 
 <script src='/include/js/jquery-2.1.0.min.js'></script>
 <script src="/include/js/header.js"></script>
-<!-- <script type="text/javascript" src="/include/js/script.js"></script> -->
 <link rel="stylesheet" href="/include/css/header.css">
 
 <div id="header">
   <div id="topBanner-extention" class="topBanner-hight">
+    <div class="topBanner-extention-left"></div>
+    <div class="topBanner-extention-right"></div>
     <div id="topBanner" class="middleArea">
       <div class="middleArea">
         <div id="banner-user-search-area">
@@ -81,20 +81,8 @@ $_SESSION["user_NAME"]=$user_NAME;
                   <img id="logout-button"></img>
                 </a>
               </li>
-<!--               <li class="banner-user-li">
-                <a id="user-project-create" TITLE="Create Project" style="background: transparent; cursor:pointer;">
-                  <img id="create-button"></img>
-                </a>
-              </li>
-              <li class="banner-user-li">
-                <a id="home-button" TITLE="Home" style="background: transparent; cursor:pointer;">
-                  <img id="home-button"></img>
-                </a>
-              </li> -->
             </ul>
           </div>
-
-          <!-- <form id="search-form" name="search-form" class="clear" role="search" action="./search/search-result.php" method="post"> -->
             <fieldset id="banner-fildset">
               <img id="search-text"></img>
               <div id="banner-form-group">
@@ -103,15 +91,13 @@ $_SESSION["user_NAME"]=$user_NAME;
               </div>
               <button type="submit" onClick="searchAction();" id="search-button"class="search-button"></button>
             </fieldset>
-          <!-- </form> -->
-
         </div>
         <div id="modeChange-area">
-          <!-- <img id="modeChangeButton" class="morph modeChangeButton" TITLE="Mode Change"></img> -->
           <img id="modeChangeButton" class="tilt modeChangeButton" TITLE="Mode Change"></img>
         </div>
       </div>
     </div>
+
   </div>
   <div id="topMenu" style="text-align: center;">
     <div id="menu-btn-group" class="middleArea menu_none" style="

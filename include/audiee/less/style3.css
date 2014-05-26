@@ -240,7 +240,7 @@ body {
           border: 1px solid @grayDark;
 
           .name-content {
-            height: 16px;
+            height: 24px;
             overflow: hidden;
             margin-bottom: 0;
             padding: 0 2px 2px; 

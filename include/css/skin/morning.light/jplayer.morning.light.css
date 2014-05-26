@@ -173,8 +173,8 @@ div.jp-interface ul.jp-controls a {
 }
 a.jp-play,
 a.jp-pause {
-	width:40px;
-	height:40px;
+	width:30px;
+	height:30px;
 	left: 375px;
 	position: absolute;
 }
@@ -182,52 +182,78 @@ a.jp-pause {
 a.jp-play, a.jp-play:hover, a.jp-pause, a.jp-pause:hover, a.jp-stop, a.jp-stop:hover, a.jp-previous, a.jp-previous:hover, a.jp-next, a.jp-next:hover, div.jp-seek-bar, div.jp-play-bar, a.jp-mute, a.jp-mute:hover, a.jp-unmute, a.jp-unmute:hover, a.jp-volume-max, a.jp-volume-max:hover, div.jp-volume-bar, div.jp-volume-bar-value, a.jp-full-screen, a.jp-full-screen:hover, a.jp-restore-screen, a.jp-restore-screen:hover, a.jp-repeat, a.jp-repeat:hover, a.jp-repeat-off, a.jp-repeat-off:hover, a.jp-shuffle, a.jp-shuffle:hover, a.jp-shuffle-off, a.jp-shuffle-off:hover {
 	background: url("jplayer.morning.light.png") no-repeat;
 }
+a.jp-play, a.jp-play:hover, a.jp-previous, a.jp-previous:hover, a.jp-next, a.jp-next:hover, a.jp-stop, a.jp-stop:hover, a.jp-shuffle, a.jp-shuffle:hover, a.jp-repeat, a.jp-repeat:hover, a.jp-repeat-off, a.jp-repeat-off:hover, a.jp-shuffle-off, a.jp-shuffle-off:hover, a.jp-pause, a.jp-pause:hover{
+	background: url("jplayer.morning.light.png") no-repeat;
+	background-size: 150px;
+}
 
 a.jp-play {
 	background-position: 0 0;
+	margin-top: 4.5px;
+	background: url("/images/main/player/jp-play.png") no-repeat center;
+	background-size: contain;
 }
 a.jp-play:hover {
-	background-position: -41px 0;
+	background-position: -31.5px 0;
+	background: url("/images/main/player/jp-play-hover.png") no-repeat center;
+	background-size: contain;
 }
 a.jp-pause {
-	background-position: 0 -42px;
+	background-position: 0 -32px;
 	display: none;
+	margin-top: 4.5px;
+	background: url("/images/main/player/jp-pause.png") no-repeat center;
+	background-size: contain;
 }
 a.jp-pause:hover {
-	background-position: -41px -42px;
+	background-position: -31.5px -32px;
+	background: url("/images/main/player/jp-pause-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-stop, a.jp-previous, a.jp-next {
-	width:28px;
-	height:28px;
-	margin-top:6px;
+	width:21px;
+	height:21px;
+	margin-top:9px;
 	position: absolute;
 }
 
 a.jp-stop {
-	background-position: 0 -83px;
+	background-position: 0 -62px;
 	/*margin-left:10px;*/
 	left: 430px;
+	background: url("/images/main/player/jp-stop.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-stop:hover {
-	background-position: -29px -83px;
+	background-position: -22px -62px;
+	background: url("/images/main/player/jp-stop-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-previous {
-	background-position: 0 -112px;
+	background-position: 0 -84px;
 	left: 330px;
+	background: url("/images/main/player/jp-previous.png") no-repeat center;
+	background-size: contain;
 }
 a.jp-previous:hover {
-	background-position: -29px -112px;
+	background-position: -22px -84px;
+	background: url("/images/main/player/jp-previous-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-next {
-	background-position: 0 -141px;
+	background-position: 0 -106px;
 	left: 470px;
+	background: url("/images/main/player/jp-next.png") no-repeat center;
+	background-size: contain;
 }
 a.jp-next:hover {
-	background-position: -29px -141px;
+	background-position: -22px -106px;
+	background: url("/images/main/player/jp-next-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 /* @end */
@@ -306,7 +332,7 @@ div.jp-audio div.jp-type-single a.jp-mute,
 div.jp-audio div.jp-type-single a.jp-unmute {
 	top: 12px;
 	/*right: 66px;*/
-	right: 235px;
+	right: 395px;
 }
 div.jp-audio div.jp-type-playlist a.jp-mute,
 div.jp-audio div.jp-type-playlist a.jp-unmute {
@@ -323,7 +349,7 @@ div.jp-audio-stream div.jp-type-single a.jp-volume-max,
 div.jp-audio div.jp-type-single a.jp-volume-max {
 	top: 12px;
 	/*right: 0;	*/
-	right: 165px;	
+	right: 315px;	
 }
 div.jp-audio div.jp-type-playlist a.jp-volume-max {
 	top: 12px;
@@ -371,7 +397,7 @@ div.jp-volume-bar {
 	overflow:hidden;
 	background-repeat: repeat-x;
 	background-position: 0 -250px;
-	width:45px;
+	width:55px;
 	height:5px;
 	cursor: pointer;
 	border-radius: 5px;
@@ -381,7 +407,7 @@ div.jp-audio div.jp-type-single div.jp-volume-bar {
 	/*top:32px;*/
 	top: 17px;
 	/*right:38px;*/
-	right:190px;
+	right:340px;
 }
 div.jp-audio div.jp-type-playlist div.jp-volume-bar {
 	top:32px;
@@ -464,7 +490,7 @@ div.jp-title {
 
 div.jp-title,
 div.jp-playlist {
-	width:100%;
+	/*width:100%;*/
 	background-color: transparent;
 	border-top:1px solid #DDD;
 	text-shadow: 0 1px 0px rgba(255,255,255,0.8);
@@ -619,7 +645,7 @@ div.jp-audio .jp-type-single ul.jp-toggles {
 	/*left: 50%;*/
 	margin: 0 0 0 -14px;
 	right: 315px;
-	top: -3px;
+	/*top: -3px;*/
 }
 div.jp-audio .jp-type-playlist ul.jp-toggles {
 	width:auto;
@@ -643,8 +669,8 @@ ul.jp-toggles li {
 
 ul.jp-toggles li a {
 	display:block;
-	width:28px;
-	height:28px;
+	width:21px;
+	height:21px;
 	text-indent:-9999px;
 	line-height:100%; /* need this for IE6 */
 }
@@ -668,43 +694,59 @@ a.jp-restore-screen:hover {
 }
 
 a.jp-repeat {
-	background-position: 0 -290px;
+	background-position: 0 -217px;
 	margin-left: 13px;
+	background: url("/images/main/player/jp-repeat.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-repeat:hover {
-	background-position: -30px -290px;
+	background-position: -23px -217px;
 	margin-left: 13px;
+	background: url("/images/main/player/jp-repeat-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-repeat-off {
-	background-position: -60px -290px;
+	background-position: -45.5px -217px;
 	margin-left: 13px;
+	background: url("/images/main/player/jp-repeat-off.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-repeat-off:hover {
-	background-position: -90px -290px;
+	background-position: -67.5px -217px;
 	margin-left: 13px;
+	background: url("/images/main/player/jp-repeat-off-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-shuffle {
-	background-position: 0 -262px;
+	background-position: 0 -196px;
 	margin-left: 5px;
+	background: url("/images/main/player/jp-shuffle.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-shuffle:hover {
-	background-position: -30px -262px;
+	background-position: -23px -196px;
 	margin-left: 5px;
+	background: url("/images/main/player/jp-shuffle-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-shuffle-off {
-	background-position: -60px -262px;
+	background-position: -45.5px -196px;
 	margin-left: 5px;
+	background: url("/images/main/player/jp-shuffle-off.png") no-repeat center;
+	background-size: contain;
 }
 
 a.jp-shuffle-off:hover {
-	background-position: -90px -262px;
+	background-position: -67.5px -196px;
 	margin-left: 5px;
+	background: url("/images/main/player/jp-shuffle-off-hover.png") no-repeat center;
+	background-size: contain;
 }
 
 
@@ -765,15 +807,21 @@ cursor: pointer;
 #list-button-area{
 	margin-top: 4px;
 position: absolute;
-right: 50px;
+right: 10px;
 }
 #jp-list-button{
-		content: url("/images/main/button/list-button.png") no-repeat center;
+		content: url("/images/main/player/main_playbar_icon_playlist_over.png") no-repeat center;
 background-size: contain;
 width: 20px;
 height: auto;
 float: left;
-margin-top: 7px;
+margin-top: 8px;
 cursor: pointer;
 }
+#jp-list-button:hover{
+	content: url("/images/main/player/main_playbar_icon_playlist_click.png") no-repeat center;
+}
 /* @end */
+.jp-playlist-item-remove{
+	float: right;
+}
