@@ -140,12 +140,19 @@
   <ul id="list-group-item" class="list-group">
     <?php
     include("/home/mh/soma/webpage/main/favorite_connect.php");
-    for($i=0; $i<$q_favoritelist_count; $i++){
+    for($i=0; $i<$q_favoritelist_project_count; $i++){
     echo("
     <li class=\"list-group-item\">
       <div class=\"favoriteList-project row\">
         <div class=\"favoriteList-add col-md-2\">
-          <a type=\"button\" onclick=\"session_play_add($favoritelist_pro_dbproject_id[$i], '$favoritelist_pro_dbTITLE[$i]', '$favoritelist_pro_dbARTIST[$i]', '$favoritelist_pro_dbSOUND_PATH[$i]')\" class=\"favoritelist-button rank-play-add-button\"></a>
+        ");
+        if($favoritelist_pro_dbsound_id[$i]==0){
+         echo(" <a style=\"cursor: auto;\" type=\"button\" class=\"favoritelist-button rank-play-add-button\"></a>");
+         }
+         else{
+          echo(" <a type=\"button\" onclick=\"session_play_add($favoritelist_pro_dbproject_id[$i], '$favoritelist_pro_dbTITLE[$i]', '$favoritelist_pro_dbARTIST[$i]', '$favoritelist_pro_dbSOUND_PATH[$i]')\" class=\"favoritelist-button rank-play-add-button\"></a>");
+         }
+        echo("
         </div>
         <div class=\"favoriteList-title-artist col-md-8\">
           <div onclick=\"getAlbumInfo($favoritelist_pro_dbproject_id[$i]);\" class=\"favoriteList-title col-md-6\">$favoritelist_pro_dbTITLE[$i]</div>

@@ -33,6 +33,10 @@ char *user = "mh";
 char *password = "thak2014";
 char *database = "mh";
 
+/**
+ * @brief SocketThread::SocketThread
+ * @param wsSocket
+ */
 SocketThread::SocketThread(QtWebsocket::QWsSocket* wsSocket) :
 	socket(wsSocket)
 {
@@ -48,10 +52,16 @@ SocketThread::SocketThread(QtWebsocket::QWsSocket* wsSocket) :
 	moveToThread(this);
 }
 
+/**
+ * @brief SocketThread::~SocketThread
+ */
 SocketThread::~SocketThread()
 {
 }
 
+/**
+ * @brief SocketThread::run
+ */
 void SocketThread::run()
 {
     std::cout << tr("connect done in thread : 0x%1").arg(QString::number((intptr_t)QThread::currentThreadId(), 16)).toStdString() << std::endl;
@@ -86,6 +96,9 @@ void SocketThread::run()
 	exec();
 }
 
+/**
+ * @brief SocketThread::finished
+ */
 void SocketThread::finished()
 {
         mysql_close(conn);
@@ -93,6 +106,10 @@ void SocketThread::finished()
 	this->deleteLater();
 }
 
+/**
+ * @brief SocketThread::processMessage
+ * @param message
+ */
 void SocketThread::processMessage(QString message)
 {
 	// ANY PROCESS HERE IS DONE IN THE SOCKET THREAD !
@@ -126,16 +143,27 @@ void SocketThread::processMessage(QString message)
     sendMessage(retName);
 }
 
+/**
+ * @brief SocketThread::sendMessage
+ * @param message
+ */
 void SocketThread::sendMessage(QString message)
 {
 	socket->write(message);
 }
 
+/**
+ * @brief SocketThread::processPong
+ * @param elapsedTime
+ */
 void SocketThread::processPong(quint64 elapsedTime)
 {
 	std::cout << tr("ping: %1 ms").arg(elapsedTime).toStdString() << std::endl;
 }
 
+/**
+ * @brief SocketThread::socketDisconnected
+ */
 void SocketThread::socketDisconnected()
 {
 	std::cout << tr("Client disconnected, thread finished").toStdString() << std::endl;

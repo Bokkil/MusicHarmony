@@ -4,6 +4,9 @@
 #include <QtCore>
 #include <QUdpSocket>
 
+/**
+ * @brief The UdpServer class
+ */
 class UdpServer : public QObject
 {
     Q_OBJECT

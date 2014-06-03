@@ -30,24 +30,26 @@ body {
 }
 
 // variables
+@navbarHeight:    150px;
 @trackHeight:     120px;
 @infoWidth:       200px;
 @infoHeight:      @trackHeight;
-@timelineHeight:  70px;
-@menubarHeight:   50px;
-@editorOffset:    90px;
-
+@timelineHeight:  50px;
+@menubarHeight:   40px;
+@editorOffset:    @navbarHeight+@menubarHeight;
+@navbarLeft: rgb(73,76,156);
+@navbarRight: rgb(182,80,125);
 
 // styles for the top navbar
 .navbar-less {
-  height: 40px;
+  height: @navbarHeight;
   margin-bottom: 0px;
   /*min-height: 41px;*/
 
   .navbar-inner {
-    height: 40px;
+    height: @navbarHeight;
   }
-
+  
   .container-fluid {
     padding-left: 10px;
   }

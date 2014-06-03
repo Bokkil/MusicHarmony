@@ -107,6 +107,7 @@ margin-left: 1px;
 }
 #input-track-area{
   width: 356px;
+  padding: 7px 13px;
 }
 #input-text-area{
   width: 356px;
@@ -130,9 +131,14 @@ border-radius: 10px;
 padding: 10px;
 border: 1px rgb(193, 193, 193) solid;
 margin-top: 10px;
+padding-left: 20px;
+padding-right: 20px;
 }
 .projects > h3 {
   margin-top: 0px;
+}
+.img-over-info-right-content-artist{
+  margin-top: 12px;
 }
 /*carousel    여기부터 카로셀 //////////////////////////////////////*/
 #myCarousel{
@@ -212,22 +218,22 @@ margin-left: 95px;
 height: 177px;
 }
 #myCarousel .img-over-info-left{
-  position: absolute;
-margin-top: -195px;
+position: absolute;
+margin-top: -170px;
 width: 371px;
-height: 145px;
+height: 120px;
 text-align: left;
 background-color: black;
 opacity: 0.6;
 border-bottom-left-radius: 15px;
-border-bottom-right-radius: 15px;
+border-bottom-right-radius: 15px
 }
 #myCarousel .img-over-info-left-content{
 margin-left: 50px;
 margin-top: 30px;
 }
 #myCarousel .img-over-info-left-content-artist{
-color: darkseagreen;
+color: rgb(124, 196, 124);
 }
 #myCarousel .img-over-info-left-content-title{
 color: white;
@@ -245,7 +251,7 @@ border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
 }
 #myCarousel .img-over-info-right-content{
-margin-left: 30px;
+margin-left: 19px;
 /*margin-top: 30px;*/
 }
 
@@ -648,6 +654,9 @@ margin-left: 135px;
   border-radius: 10px;
   border: 1px solid #79037B;
 }
+.mp-null{
+  height: 700px;
+}
 /*///////////////////////  timeline  ///////////////////////////*/
 #timeline-bar-img
 {
@@ -777,9 +786,23 @@ background-color: rgba(255, 255, 255, 0.1);
 border-radius: 15px;
 border: 1px rgba(219, 219, 219, 0.88) solid;
 }
+.pi-main-alblum-img-back-edit{
+  width: 100%;
+height: auto;
+background-color: rgba(255, 255, 255, 0.1);
+border-radius: 15px;
+/*border: 1px rgba(219, 219, 219, 0.88) solid;*/
+text-align: center;
+}
 .pi-main-album-full{
  width: 248px;
 height: 248px;
+/*height: auto;*/
+margin: 10px;
+}
+.pi-main-album-full-edit{
+   width: 230px;
+height: 230px;
 /*height: auto;*/
 margin: 10px;
 }
@@ -792,10 +815,10 @@ color: rgb(162, 162, 162);
 /*text-align: right;*/
 }
 .pi-main-formgroup > .form-group > .col-xs-7{
-  margin-top: 5px;
+  /*margin-top: 5px;*/
 }
 .pi-main-formgroup > .form-group{
-height: 32px;
+height: 28px;
 margin: 0;
 }
 .col-xs-4 > .mic-icon{
@@ -813,7 +836,7 @@ background-image: url("/images/main/button/edit-button2.png");
 background-size: contain;
 }
 .album-info-area{
-  height: 310px;
+  height: 302px;
 border-bottom: 1px solid #e5e5e5;
 }
 .track-area-img{
@@ -837,7 +860,7 @@ background-size: contain;
   padding: 15px;
 padding-top: 30px;
 padding-bottom: 30px;
-height: 151px;
+height: 120px;
 border-bottom: 1px solid #e5e5e5;
 margin-right: 0px;
 margin-bottom: 0px;
@@ -846,10 +869,11 @@ margin-bottom: 0px;
 padding: 15px;
 padding-top: 30px;
 padding-bottom: 30px;
-height: 151px;
+height: 120px;
 border-bottom: 1px solid #e5e5e5;
 margin-left: 0px;
 margin-bottom: 0px;
+margin-right: 0px;
 }
 .track-user-name{
 text-align: center;
@@ -879,7 +903,7 @@ border: 0px;
 -webkit-border-top-right-radius: 5px;
 -webkit-border-bottom-left-radius: 5px;
 -webkit-border-bottom-right-radius: 5px;
-
+float: right;
 }
 .submit-button:hover{
   background-image: url("/images/main/button/user-edit-summit.png");
@@ -894,6 +918,51 @@ margin-right: 0;
 #project-comments > .pi-track-comment-area{
 margin-left: 0;
 margin-right: 0;
+}
+.pi-main-formgroup{
+  padding: 0;
+}
+#project-track > div{
+  background-color: rgb(241, 240, 240);
+}
+#project-comments > div{
+    background-color: rgb(241, 240, 240);
+}
+.project-info-text{
+  width: 280px;
+height: 40px;
+}
+.pro-info-text{ 
+width: 250px;
+min-width: 250px;
+max-width: 250px;
+height: 45px;
+min-height: 45px;
+max-height: 45px;
+box-shadow: rgb(146, 146, 146) 0px 0px 1px;
+border: 0px;
+}
+.pi-main-formgroup-edit > .form-group{
+  height: 33px;
+margin: 0;
+}
+.pro-edit-summit-btn{
+  height: 30px;
+width: 75px;
+background-image: url("/images/main/button/user-edit-summit.png");
+cursor: pointer;
+outline: none;
+background-size: 100% 100%;
+background-position: center center;
+background-repeat: no-repeat;
+border: 0px;
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+margin-top: -30px;
+margin-right: 10px;
+clear: both;
 }
 /*///////////////////////  user - info  ///////////////////////////*/
 #userInfo-bar-img{
@@ -955,9 +1024,9 @@ padding-left: 40px;
   padding-top: 15px;
 }
 .pi-user-img{
-width: 100%;
-height: auto;
-/*cursor: pointer;*/
+width: 90px;
+height: 90px;
+cursor: pointer;
 padding: 0;
 }
 .audio-track{
@@ -968,18 +1037,23 @@ padding-left: 15px;
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
   margin-right: 0;
+  padding-left: 30px;
+padding-right: 30px;
 }
 .pi-content-area-comment{
     padding-bottom: 0px;
   border-bottom: 1px solid #e5e5e5;
   margin-right: 0;
+  padding-left: 30px;
+padding-right: 30px;
+margin-left: 0;
 }
 .pi-track-user-name{
 font-weight: 600;
 font-size: larger;
 color: #494c9c;
 padding-top: 15px;
-width: 100%;
+width: 90%;
 float: left;
 }
 .pi-comment-user-name{
@@ -987,7 +1061,7 @@ font-weight: 600;
 font-size: larger;
 color: #B6507D;
 padding-top: 15px;
-width: 100%;
+width: 90%;
 float: left;
 }
 .pi-track-user-commnet{
@@ -998,6 +1072,7 @@ margin-bottom: 5px;
 clear: both;
 }
 .track-delete-button{
+  margin-top: 15px;
 float: right;
 }
 .info-area-back{

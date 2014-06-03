@@ -1,15 +1,24 @@
 #include <UdpServer.h>
 
+/**
+ * @brief UdpServer::UdpServer
+ */
 UdpServer::UdpServer()
 {
     qDebug("UdpServer::UdpServer() start");
     udpSock = new QUdpSocket();
 }
 
+/**
+ * @brief UdpServer::~UdpServer
+ */
 UdpServer::~UdpServer()
 {
 }
 
+/**
+ * @brief UdpServer::initReceiveSock
+ */
 void UdpServer::initReceiveSock()
 {
     qDebug("UdpServer::initReceiveSock() start");
@@ -20,6 +29,9 @@ void UdpServer::initReceiveSock()
            , this, SLOT(onReadPendingUdpDatagrams()));
 }
 
+/**
+ * @brief UdpServer::onReadPendingUdpDatagrams
+ */
 void UdpServer::onReadPendingUdpDatagrams()
 {
     while(udpReceiveSock->hasPendingDatagrams())

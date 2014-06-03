@@ -99,10 +99,11 @@ function close_list(){
 }
 
 function session_play_add(playid, playtitle, playartist, playmp3){
+  var kind='0';
     $(document).ready(function(){
     jQuery.ajax({
     type:"POST",
-    url:"/main/session_play_add.php?a="+playid+"&b="+playtitle+"&c="+playartist+"&d="+playmp3+"&e="+0,
+    url:"/main/session_play_add.php?a="+playid+"&b="+playtitle+"&c="+playartist+"&d="+playmp3+"&e="+kind,
     success:function(){
       play_add(playid, playtitle, playartist, playmp3);
     }, error: function(xhr,status,error){
@@ -112,10 +113,11 @@ function session_play_add(playid, playtitle, playartist, playmp3){
   }); 
 }
 function session_play_add_source(playid, playtitle, playartist, playmp3){
+  var kind='1';
     $(document).ready(function(){
     jQuery.ajax({
     type:"POST",
-    url:"/main/session_play_add.php?a="+playid+"&b="+playtitle+"&c="+playartist+"&d="+playmp3+"&e="+1,
+    url:"/main/session_play_add.php?a="+playid+"&b="+playtitle+"&c="+playartist+"&d="+playmp3+"&e="+kind,
     success:function(){
       play_add_source(playid, playtitle, playartist, playmp3);
     }, error: function(xhr,status,error){
@@ -170,7 +172,7 @@ for($i=0; $i<$play_count; $i++){
   echo("<script>temp_play_pro_id[pc]='$temp_play_pro_id';</script>");
   echo("<script>temp_play_pro_title[pc]='$temp_play_pro_title';</script>");
   echo("<script>temp_play_pro_artist[pc]='$temp_play_pro_artist';</script>");
-  echo("<script>temp_play_pro_path[pc]='$temp_play_pro_path';pc++;</script>");
+  echo("<script>temp_play_pro_path[pc]='$temp_play_pro_path';</script>");
   echo("<script>temp_play_source[pc]='$temp_play_source';pc++;</script>");
 }
 ?>
@@ -178,9 +180,11 @@ for($i=0; $i<$play_count; $i++){
   $(function(){
     for(var i=0; i<play_count; i++){
       if(temp_play_source[i]==0){
+      // console.log(temp_play_source[i]);
         play_add(temp_play_pro_id[i], temp_play_pro_title[i], temp_play_pro_artist[i], temp_play_pro_path[i]);
       }
-      else{
+      else{console.log(temp_play_source[i]);
+        // console.log("bbbb");
         play_add_source(temp_play_pro_id[i], temp_play_pro_title[i], temp_play_pro_artist[i], temp_play_pro_path[i]);
       }
   }

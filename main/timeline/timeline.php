@@ -106,7 +106,32 @@ function project_master()
               $res_temp = mysql_query($sql_temp);
               $project_name = mysql_result($res_temp, 0);
               $temp_comment=$content;
-              $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
+              // $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
+              $content="'$user_name' scribbled by '$project_name'.";
+            }
+            else if($type==1){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' like '$project_name'.";
+            }
+            else if($type==2){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' had downloaded '$project_name's music.";
+            }
+            else if($type==3){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' had downloaded '$project_name's music.";
+            }
+            else if($type==4){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' added track to '$project_name'.";
             }
 
             echo("  
@@ -146,12 +171,19 @@ function project_master()
   <ul id="list-group-item" class="list-group">
     <?php
     include("/home/mh/soma/webpage/main/favorite_connect.php");
-    for($i=0; $i<$q_favoritelist_count; $i++){
+    for($i=0; $i<$q_favoritelist_project_count; $i++){
     echo("
     <li class=\"list-group-item\">
       <div class=\"favoriteList-project row\">
         <div class=\"favoriteList-add col-md-2\">
-          <a type=\"button\" onclick=\"play_add($favoritelist_pro_dbproject_id[$i], '$favoritelist_pro_dbTITLE[$i]', '$favoritelist_pro_dbARTIST[$i]', '$favoritelist_pro_dbSOUND_PATH[$i]')\" class=\"favoritelist-button rank-play-add-button\"></a>
+        ");
+        if($favoritelist_pro_dbsound_id[$i]==0){
+         echo(" <a style=\"cursor: auto;\" type=\"button\" class=\"favoritelist-button rank-play-add-button\"></a>");
+         }
+         else{
+          echo(" <a type=\"button\" onclick=\"session_play_add($favoritelist_pro_dbproject_id[$i], '$favoritelist_pro_dbTITLE[$i]', '$favoritelist_pro_dbARTIST[$i]', '$favoritelist_pro_dbSOUND_PATH[$i]')\" class=\"favoritelist-button rank-play-add-button\"></a>");
+         }
+        echo("
         </div>
         <div class=\"favoriteList-title-artist col-md-8\">
           <div onclick=\"getAlbumInfo($favoritelist_pro_dbproject_id[$i]);\" class=\"favoriteList-title col-md-6\">$favoritelist_pro_dbTITLE[$i]</div>

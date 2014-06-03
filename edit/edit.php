@@ -12,13 +12,15 @@
 
   <!-- java script -->
   <script type="text/javascript" src="testAPI.js"></script>
-  
+  <script src="/include/js/spin.min.js"></script>
+  <link rel="stylesheet" href="/include/css/header_edit.css">
+
   <!-- style sheet -->
   <!-- <link rel="stylesheet" href="/include/css/bootstrap.min.css">
   <link rel="stylesheet" href="/include/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="/include/css/layout.css">
 
 -->
+
 </head>
 
 <body>
@@ -33,8 +35,17 @@
     //include("$base_dir/include/config/header.php");
   ?> 
 -->
+
+        
+
 <div class="navbar-less">
-  <div class="navbar-inner">
+  <div id="topBanner-extention" class="topBanner-height">
+  
+  <div id="topBanner" class="navbar-inner">
+    <div id="modeChange-area">
+      <img id="modeChangeButton" class="tilt modeChangeButton" TITLE="Mode Change"></img>
+    </div>
+  </div>
     <div class="container-fluid">
       <!-- <div class="pull-left editable" id="project-name"></div> -->
       <div class="btn-toolbar" id="playback-controls">
@@ -51,7 +62,6 @@
 </div>
 
 <div class="menubar" id="menu-view">
-  <p>websocket state: <span id="socketState">null</span></p>
   <ul class="nav nav-pills"></ul>
 
 </div>
@@ -66,6 +76,7 @@
   </div> <!-- /div#editor-view -->
 </div> 
 </div> <!-- /div#app-frame -->
+<p>websocket state: <span id="socketState">null</span></p>
 
 <!-- JavaScript at the bottom for fast page loading -->
 

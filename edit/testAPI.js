@@ -3,6 +3,7 @@ var srcAddress;
 
 function Network() {
     this.URI = "ws://172.16.100.76:8080";
+    //this.URI = "ws://61.43.139.31:8080";
 
     this.websocket = null;
     this.intervalId = null;
@@ -46,6 +47,7 @@ Network.prototype.connect = function(URI) {
         this.websocket.onmessage = function(evt) {
             console.log(getLogDate() + "Message received :", evt.data);
             srcAddress = 'http://172.16.100.76/uploads/music/'+evt.data;
+            //srcAddress = 'http://61.43.139.31/uploads/music/'+evt.data;
             console.log(srcAddress);
             //displayMessage(evt.data);
             var oReq = new XMLHttpRequest();

@@ -132,7 +132,7 @@ echo ("<script>count4='$count4';</script>");
 echo ("<script>count4_r='$count4_r';</script>");
 ?>
 <script>
-if(count1==0 $$ count1_r==0){
+if(count1==0 && count1_r==0){
  var mes= "<h4 class='search-table-tr'>No results were found for your search in projects.</h4>";
  document.getElementById("search-table-project").innerHTML=mes;
  }
@@ -140,7 +140,7 @@ if(count1==0 $$ count1_r==0){
  var mes= "<h4 class='search-table-tr'>No results were found for your search in tracks.</h4>";
  document.getElementById("search-table-track").innerHTML=mes;
  }
- if(count4==0 $$ count4_r==0){
+ if(count4==0 && count4_r==0){
  var mes= "<h4 class='search-table-tr'>No results were found for your search in users.</h4>";
  document.getElementById("search-table-artist").innerHTML=mes;
  }

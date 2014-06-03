@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Music Harmoney</title>
+<title>Music Harmony</title>
 <!-- 공통파일 포함 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="온라인 뮤직 콜라보레이션 플랫폼" />
@@ -26,20 +26,7 @@
     }
   });
 </script>
-<script language='javascript'>
-function noEvent() {
-if (event.keyCode == 116) {
-event.keyCode= 2;
-return false;
-}
-else if(event.ctrlKey && (event.keyCode==78 || event.keyCode ==
-82))
-{
-return false;
-}
-}
-document.onkeydown = noEvent;
-</script>
+
 <!-- java script -->
 <script src='/include/js/jquery-2.1.0.min.js'></script>
 <script src='/include/js/bootstrap.js'></script>

@@ -2,7 +2,9 @@
 header('Content-Type: text/html; charset=utf-8');
 session_start();
 ?>
-
+<div class="bar-area">
+  <img id="projectInfo-bar-img"></img>
+</div>
 <?PHP
 $base_dir = "/home/mh/soma/webpage";
 include("$base_dir/include/config/config.php");
@@ -89,9 +91,7 @@ for($j=0; $j<$q_temp_count; $j++)
 ?>
 
 
-<div class="bar-area">
-  <img id="projectInfo-bar-img"></img>
-</div>
+
 <div class="row pi-1st">
   <div class="col-md-6">
     <div class="pi-title-banner">
@@ -99,6 +99,7 @@ for($j=0; $j<$q_temp_count; $j++)
       <?php echo($pro_dbARTIST."'s album '".$pro_dbTITLE."'");?>
     </div>
 
+    <div id="project_info_area">
     <div class="row pi-main-row-top album-info-area">
       <div class="col-xs-5">
         <div class="pi-main-alblum-img-back">      
@@ -107,31 +108,44 @@ for($j=0; $j<$q_temp_count; $j++)
       </div>
       <div class="col-xs-7 pi-main-formgroup">
         <div class="form-group">
-          <label class="col-xs-5 control-label">Title</label>
-          <div class="col-xs-7"><?php echo($pro_dbTITLE); ?></div>
+          <label class="col-xs-4 control-label">Title</label>
+          <?php 
+          if ($user_id==$pro_dbpri_user_id){
+            echo("
+          <div class=\"col-xs-6\">$pro_dbTITLE</div>
+          <div class=\"col-xs-2\"><img id=\"project-edit-btn\" onclick=\"project_edit_mode($pro_dbid);\" class=\"user-edit-btn\"></div>     
+          ");
+          }
+          else{
+            echo("
+          <div class=\"col-xs-8\">$pro_dbTITLE</div>
+          ");
+          }
+          ?>
+
         </div>
         <div class="form-group">
-          <label class="col-xs-5 control-label">Creator</label>
+          <label class="col-xs-4 control-label">Creator</label>
           <?php echo("<div onclick=\"user_info($pro_dbpri_user_id);\" class=\"pointer col-xs-7\">$pro_dbARTIST</div>");?>
         </div>
         <div class="form-group">
-          <label class="col-xs-5 control-label">Created At</label>
-          <div class="col-xs-7"><?php echo($pro_dbcreated_at); ?></div>
+          <label class="col-xs-4 control-label">Created At</label>
+          <div class="col-xs-8"><?php echo($pro_dbcreated_at); ?></div>
         </div>
         <div class="form-group">
-          <label class="col-xs-5 control-label">Genre</label>
-          <div class="col-xs-7"><?php echo($pro_dbGENRE); ?></div>
+          <label class="col-xs-4 control-label">Genre</label>
+          <div class="col-xs-8"><?php echo($pro_dbGENRE); ?></div>
         </div>
         <div class="form-group">
-          <label class="col-xs-5 control-label">Good Count</label>
-          <div class="col-xs-7"><?php echo($pro_dbGOOD_COUNT); ?></div>
+          <label class="col-xs-4 control-label">Good Count</label>
+          <div class="col-xs-8"><?php echo($pro_dbGOOD_COUNT); ?></div>
         </div>
         <div class="form-group">
-          <label class="col-xs-5 control-label">Recent Upload</label>
-          <div class="col-xs-7"><?php echo($pro_dbsound_updated_at); ?></div>
+          <label class="col-xs-4 control-label">Recent Upload</label>
+          <div class="col-xs-8"><?php echo($pro_dbsound_updated_at); ?></div>
         </div>
-        <div class="form-group">
-          <label class="col-xs-5 control-label">Musician</label>
+        <div class="form-group" style="height: 32px;">
+          <label class="col-xs-4 control-label">Musician</label>
           <?php
           if($count2){
           echo("<div onclick=\"user_info($pro_dbsound_pri_user_id);\" class=\"pointer col-xs-7\">$pro_dbuploader_user_name</div>");
@@ -141,9 +155,9 @@ for($j=0; $j<$q_temp_count; $j++)
           }
           ?>
         </div>
-        <div class="form-group">
-          <label class="col-xs-5 control-label introduce-label" style="color: rgb(22, 39, 165);"><a class="mic-icon"></a>Introduce</label>
-          <div class="col-xs-7"><?php echo($pro_dbPROJECT_INFO); ?></div>
+        <div class="form-group" style="height: 38px;">
+          <label class="col-xs-4 control-label introduce-label" style="color: rgb(22, 39, 165);margin-left: 20px;width: 120px;"><a class="mic-icon"></a>Introduce</label>
+          <div class="col-xs-8 project-info-text"><?php  echo($pro_dbPROJECT_INFO); ?></div>
         </div>
         <div class="form-group">
           <form class="pi-main-button-group">
@@ -165,6 +179,7 @@ for($j=0; $j<$q_temp_count; $j++)
         </div>
       </div>
     </div>
+  </div>
 
   </div>
   <div class="col-md-6">

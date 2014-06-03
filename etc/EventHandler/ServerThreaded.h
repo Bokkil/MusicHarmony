@@ -25,6 +25,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "QWsSocket.h"
 #include "SocketThread.h"
 
+/**
+ * @brief The ServerThreaded class
+ */
 class ServerThreaded : public QObject
 {
 	Q_OBJECT

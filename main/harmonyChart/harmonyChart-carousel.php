@@ -20,12 +20,8 @@
                   <img onclick=\"getAlbumInfo($pro_dbid[$i]);\" class=\"album_img_left img-radius\" src=\"/uploads/albumImg/$pro_dbALBUM_IMAGE_PATH[$i]\" alt=\"...\">
                   <div onclick=\"getAlbumInfo($pro_dbid[$i]);\" class=\"album_img_left img-over-info-left\" src=\"/uploads/albumImg/$pro_dbALBUM_IMAGE_PATH[$i]\" alt=\"...\">
                     <div class=\"img-over-info-left-content\"> 
-                     <h2 class=\"img-over-info-left-content-artist\">$pro_dbARTIST[$i]</h2>
-                     <h3 class=\"img-over-info-left-content-title\">
-                     $pro_dbTITLE[$i]
-                     <br>
-                     $pro_dbPLAY_TIME[$i]
-                     </h3>
+                     <h2 class=\"img-over-info-left-content-title\">$pro_dbTITLE[$i]</h2>
+                     <h3 class=\"img-over-info-left-content-artist\">$pro_dbARTIST[$i]</h3>
                     </div>
                   </div>
                 </a>
@@ -86,12 +82,8 @@
               <img onclick=\"getAlbumInfo($pro_dbid[$i]);\" class=\"album_img_left img-radius\" src=\"/uploads/albumImg/$pro_dbALBUM_IMAGE_PATH[$i]\" alt=\"...\">
                 <div onclick=\"getAlbumInfo($pro_dbid[$i]);\" class=\"album_img_left img-over-info-left\" src=\"/uploads/albumImg/$pro_dbALBUM_IMAGE_PATH[$i]\" alt=\"...\">
                   <div class=\"img-over-info-left-content\"> 
-                   <h2 class=\"img-over-info-left-content-artist\">$pro_dbARTIST[$i]</h2>
-                   <h3 class=\"img-over-info-left-content-title\">
-                   $pro_dbTITLE[$i]
-                   <br>
-                   $pro_dbPLAY_TIME[$i]
-                   </h3>
+                   <h2 class=\"img-over-info-left-content-title\">$pro_dbTITLE[$i]</h2>
+                   <h3 class=\"img-over-info-left-content-artist\">$pro_dbARTIST[$i]</h3>
                   </div>
               </div>
             </a>

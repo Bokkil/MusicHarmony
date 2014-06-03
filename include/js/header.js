@@ -181,7 +181,7 @@ function getAlbumInfo(id) {
   menu_group.removeClass('menu_tlb');
   menu_group.addClass('menu_none');
   var project_id=id;
-  console.log(project_id);
+  // console.log(project_id);
   $("#content").load("/main/myProject/projectInfo.php?a="+project_id);
 }
 
@@ -196,12 +196,12 @@ function callEditProject(id) {
   //fullSize();
   // $("#content").load("/edit/edit.php?project_id="+project_id);
   
-  // location.replace("/edit/edit.php?project_id="+project_id);
-  
-  var str= "<iframe src='/edit/edit.php?project_id=";
-  str+=project_id;
-  str+="' width='100%' height='1000px' scrolling=yes frameBorder='0'></iframe>";
-  document.getElementById("content").innerHTML = str;
+  location.replace("/edit/edit.php?project_id="+project_id);
+
+  // var str= "<iframe src='/edit/edit.php?project_id=";
+  // str+=project_id;
+  // str+="' width='100%' height='1000px' scrolling=yes frameBorder='0'></iframe>";
+  // document.getElementById("content").innerHTML = str;
   //normalSize();
 } 
 
@@ -370,6 +370,16 @@ function down_music(id)
     }
     }); 
   });
+}
+
+function project_edit_mode(id){
+  // alert(id);
+  // $("#project_info_area").load("/main/myProject/myProject_edit.php?a="+id);
+  var str= "<iframe src='/main/myProject/myProject_edit.php?a=";
+  str+=id;
+  str+="' width='705px' height='310px' scrolling=no frameBorder='0'></iframe>";
+  document.getElementById("project_info_area").innerHTML = str;
+  //normalSize();
 }
 
 // function normalSize(){

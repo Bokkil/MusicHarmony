@@ -18,15 +18,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "ServerThreaded.h"
 #include <iostream>
 
+/**
+ * @brief ServerThreaded::ServerThreaded
+ */
 ServerThreaded::ServerThreaded()
 {
-
 }
 
+/**
+ * @brief ServerThreaded::~ServerThreaded
+ */
 ServerThreaded::~ServerThreaded()
 {
 }
 
+/**
+ * @brief ServerThreaded::init
+ */
 void ServerThreaded::init()
 {
     int port = 8080; //dddd
@@ -43,6 +51,9 @@ void ServerThreaded::init()
     QObject::connect(server, SIGNAL(newConnection()), this, SLOT(processNewConnection()));
 }
 
+/**
+ * @brief ServerThreaded::processNewConnection
+ */
 void ServerThreaded::processNewConnection()
 {
 	std::cout << QObject::tr("Client connected").toStdString() << std::endl;

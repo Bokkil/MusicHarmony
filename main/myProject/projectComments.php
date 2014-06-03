@@ -1,6 +1,12 @@
 <?php
-	$base_dir = "/home/mh/soma/webpage";
-	include("$base_dir/include/config/config.php");
+	// $base_dir = "/home/mh/soma/webpage";
+	// include("$base_dir/include/config/config.php");
+	$db_host		= "localhost";
+	$db_user		= "mh";
+	$db_password	= "thak2014";
+	$db_dbname  = "mh";
+	$db_conn    = mysql_connect($db_host, $db_user, $db_password);
+	mysql_select_db($db_dbname, $db_conn);
 	$user_id=$_SESSION["user_id"];
 	$project_id = $_SESSION["project_id"];
 	$sql="select * from comments where project_id='$project_id' and TYPE='0' order by created_at desc;";
@@ -27,10 +33,10 @@
 		echo("
 			<div class=\"row pi-content-area-comment\">
 				<div class=\"col-md-2 pi-track-user-img-area\">
-					<img class=\"pi-user-img left\" src=\"/uploads/userImg/$picture_path\"/>
+					<img onclick=\"user_info_parents($pri_user_id);\" class=\"pi-user-img left\" src=\"/uploads/userImg/$picture_path\"/>
 				</div>
 				<div class=\"col-md-10\">
-				  <div class=\"pi-comment-user-name\"> $user_name
+				  <div onclick=\"user_info_parents($pri_user_id);\" class=\"pi-comment-user-name pointer\"> $user_name </div>
 				  ");
 		if($user_id==$pri_user_id){
 		echo("
@@ -38,11 +44,11 @@
 		");
 		};
 		echo("
-				  </div>
+				 
 					<div class=\"pi-track-user-commnet\"> $comment </div>
 					<div class=\"right\"> $created_at </div>
 				</div>
-			</div>
+			</div>	
 			");
 	}
 ?>

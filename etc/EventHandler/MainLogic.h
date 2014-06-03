@@ -7,6 +7,9 @@
 #include "ServerThreaded.h"
 #include "UdpServer.h"
 
+/**
+ * @brief The MainLogic class
+ */
 class MainLogic : public QObject
 {
     Q_OBJECT

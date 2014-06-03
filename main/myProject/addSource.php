@@ -41,13 +41,9 @@
 	}
 	else
 	{
-	    // echo("Please upload only audio files and lower then 20M files");
 	    echo("<script>alert(\"Please upload only audio files and smaller file size than 20M\");
 	    	window.location=\"/main/myProject/projectBottom.php\";
-	    	</script>");
-			// echo("<script>file_err();</script>");
-	    // sleep(5);
-	    //header("Location: /main/myProject/projectBottom.php");
+	    	</script>");		
 	}
 
 

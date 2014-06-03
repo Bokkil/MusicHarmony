@@ -5,6 +5,9 @@
 #include <QJsonObject>
 #include <QString>
 
+/**
+ * @brief The JsonParser class
+ */
 class JsonParser : public QObject
 {
     Q_OBJECT

@@ -120,13 +120,39 @@ for($i=0; $i<$count; $i++)
       $comment_user_id = mysql_result($res2,0,'id');
 
       $temp_comment="";
-      if($type==0){
-        $q_temp = "select TITLE from projects where id=$project_id;";
-        $res_temp = mysql_query($q_temp);
-        $project_name = mysql_result($res_temp, 0);
-        $temp_comment=$content;
-        $content="$user_name"."님이 "."$project_name"."에 댓글을 남겼습니다.";
-      }
+      if($type==0)
+            {
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $temp_comment=$content;
+              // $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
+              $content="'$user_name' scribbled by '$project_name'.";
+            }
+            else if($type==1){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="A '$user_name' likes '$project_name'.";
+            }
+            else if($type==2){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' had downloaded '$project_name's music.";
+            }
+            else if($type==3){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' had downloaded '$project_name's music.";
+            }
+            else if($type==4){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' added track for '$project_name'.";
+            }
       echo("  
        <div class=\"form-group\">
        <img onclick=\"user_info($comment_user_id);\" class=\"timeline-user-img left\" src=\"/uploads/userImg/$picture_path\"/>
@@ -172,8 +198,9 @@ for($i=0; $i<$count; $i++)
         </div>
         <div id=\"$i\" class=\"panel-collapse collapse\">
         <div class=\"panel-body\">
-        ");
-      $sql = "select * from comments where pri_user_id=$user_id or project_id=$pro_dbid[$i] order by created_at desc;";
+        ");  
+      $sql = "select * from comments where project_id=$pro_dbid[$i] order by created_at desc;"; 
+      // $sql = "select * from comments where pri_user_id=$user_id or project_id=$pro_dbid[$i] order by created_at desc;";
       $res = mysql_query($sql);
       $cnt=mysql_num_rows($res);
       for($j=0;$j<$cnt;$j++)
@@ -194,13 +221,39 @@ for($i=0; $i<$count; $i++)
         $comment_user_id = mysql_result($res2,0,'id');
 
         $temp_comment="";
-        if($type==0){
-          $q_temp = "select TITLE from projects where id=$project_id;";
-          $res_temp = mysql_query($q_temp);
-          $project_name = mysql_result($res_temp, 0);
-          $temp_comment=$content;
-          $content="$user_name"."님이 "."$project_name"."에 댓글을 남겼습니다.";
-        }
+        if($type==0)
+            {
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $temp_comment=$content;
+              // $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
+              $content="'$user_name' scribbled by '$project_name'.";
+            }
+            else if($type==1){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="A '$user_name' likes '$project_name'.";
+            }
+            else if($type==2){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' had downloaded '$project_name's music.";
+            }
+            else if($type==3){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' had downloaded '$project_name's music.";
+            }
+            else if($type==4){
+              $sql_temp = "select TITLE from projects where id='$project_id';";
+              $res_temp = mysql_query($sql_temp);
+              $project_name = mysql_result($res_temp, 0);
+              $content="'$user_name' added track for '$project_name'.";
+            }
         echo("  
          <div class=\"form-group\">
          <img onclick=\"user_info($comment_user_id);\" class=\"timeline-user-img left\" src=\"/uploads/userImg/$picture_path\"/>
@@ -228,6 +281,10 @@ for($i=0; $i<$count; $i++)
         ");
       }
       }
+        if($count<5){
+        $count_temp=(5-$count) * 155;
+        echo("<div class=\"mp-null\" style=\"height: ".$count_temp."px;\"></div>");
+        }
       ?>
       </div>
     </div>

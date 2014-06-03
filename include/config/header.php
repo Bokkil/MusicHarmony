@@ -73,7 +73,7 @@ $_SESSION["user_NAME"]=$user_NAME;
               </li>
               <li class="banner-user-li">
                 <a id="user-nickname" style="background: transparent; cursor:pointer;">
-                  <h3 class="banner-user-h3"><?php echo $_SESSION["user_NAME"]?> 님</h3>
+                  <h3 class="banner-user-h3"><?php echo $_SESSION["user_NAME"]?></h3>
                 </a>
               </li>
               <li class="banner-user-li" id="logout-button-li">
