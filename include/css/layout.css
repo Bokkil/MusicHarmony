@@ -683,7 +683,7 @@ cursor: pointer;
 {
 width: 130px;
 height: 130px;
-height: auto;
+/*height: auto;*/
 cursor: pointer;
 padding: 0;
 margin-right: 20px;

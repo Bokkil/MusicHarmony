@@ -125,7 +125,7 @@ function project_master()
               $sql_temp = "select TITLE from projects where id='$project_id';";
               $res_temp = mysql_query($sql_temp);
               $project_name = mysql_result($res_temp, 0);
-              $content="'$user_name' had downloaded '$project_name's music.";
+              $content="'$user_name's track was merged into '$project_name'.";
             }
             else if($type==4){
               $sql_temp = "select TITLE from projects where id='$project_id';";

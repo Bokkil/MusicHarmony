@@ -210,7 +210,7 @@ body {
       .display-wrapper {
         height: @trackHeight - 20;
         position: absolute;
-        top: 20px;
+        top: 30px;
         background-color: hsla(0, 0%, 78%, 0.2);
         z-index: 200;
 
@@ -242,7 +242,7 @@ body {
           border: 1px solid @grayDark;
 
           .name-content {
-            height: 24px;
+            height: 28px;
             overflow: hidden;
             margin-bottom: 0;
             padding: 0 2px 2px; 

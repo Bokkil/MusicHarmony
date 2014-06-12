@@ -8,7 +8,8 @@ session_cache_expire(1800);
 <!-- <link type="text/css" href="/include/css/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" /> -->
 <!-- <link type="text/css" href="/include/css/skin/midnight.black/jplayer.midnight.black.css" rel="stylesheet" /> -->
 <link type="text/css" href="/include/css/skin/morning.light/jplayer.morning.light.css" rel="stylesheet" />
-<script type="text/javascript" src="/include/js/jquery-1.7.2.min.js"></script>
+<!-- <script type="text/javascript" src="/include/js/jquery-1.7.2.min.js"></script> -->
+<script type="text/javascript" src="/include/js/jquery-2.1.0.min.js"></script>
 <script src="/include/js/jquery.jplayer.min.js"></script>
 
 <script src="/include/js/add-on/jplayer.playlist.min.js"></script>
@@ -134,20 +135,28 @@ var temp_play_pro_path = new Array();
 var temp_play_source = new Array();
 </script>
 <?PHP
+// function unset_playlist($num)
+// {
+//   unset($_SESSION['play_pro_id'][$num]);
+//   unset($_SESSION['play_pro_title'][$num]);
+//   unset($_SESSION['play_pro_artist'][$num]);
+//   unset($_SESSION['temp_play_source'][$num]);
+// }
+
 if ( !isset($_SESSION['play_pro_id']) ) {
-    session_register( $_SESSION['play_pro_id'] = array());
+    $_SESSION['play_pro_id'] = array();
 } 
 if ( !isset($_SESSION['play_pro_title']) ) { 
-    session_register( $_SESSION['play_pro_title'] = array()); 
+     
 } 
 if ( !isset($_SESSION['play_pro_artist']) ) { 
-    session_register( $_SESSION['play_pro_artist'] = array()); 
+    $_SESSION['play_pro_artist'] = array(); 
 }
 if ( !isset($_SESSION['play_pro_path']) ) { 
-    session_register( $_SESSION['play_pro_path'] = array()); 
+    $_SESSION['play_pro_path'] = array(); 
 }
 if ( !isset($_SESSION['temp_play_source']) ) { 
-    session_register( $_SESSION['temp_play_source'] = array()); 
+    $_SESSION['temp_play_source'] = array(); 
 }
 // sound=> 0, source=1;
 

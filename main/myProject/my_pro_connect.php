@@ -13,9 +13,6 @@ mysql_select_db($db_dbname, $db_conn);
 extract($_POST);
 $user_id=$_SESSION["user_id"];
 $project_id=$_GET['a'];
-echo("<script>
-        var pro_id = '$project_id';
-  </script>");
 $TITLE=$_POST["TITLE"];
 $GENRE=$_POST["GENRE"];
 // $AFFILIATE_BAND=$_POST["AFFILIATE"];
@@ -24,18 +21,10 @@ $INFO=$_POST["INFO"];
 $PICTURE=$_FILES['ALBUM_IMAGE_PATH']['name'];
 ?>
 
-<script>
-function page_reload(id){
-  // alert(id);
-  // alert('33333 Complete !!');
-  $("#content").load("/main/myProject/projectInfo.php?a="+id);
-}
-</script>
-
 <?php
 if($PICTURE){
 // $q1="update users set NAME='$NAME', PART='$PART', AFFILIATE_BAND='$AFFILIATE_BAND', INFO='$INFO', PICTURE='$PICTURE' where id=$user_id;";
-$q1="update projects set TITLE='$TITLE', GENRE='$GENRE', INFO='$INFO', PICTURE='$PICTURE' where id=$project_id;";
+$q1="update projects set TITLE='$TITLE', GENRE='$GENRE', PROJECT_INFO='$INFO', ALBUM_IMAGE_PATH='$PICTURE' where id='$project_id';";
 $sql_result1=mysql_query($q1, $db_conn);          //질의(위 내용)를 수행하라.
 
   if ($_FILES['ALBUM_IMAGE_PATH']['error'] > 0) { 
@@ -75,7 +64,7 @@ $sql_result1=mysql_query($q1, $db_conn);          //질의(위 내용)를 수행
   } 
 }
 else{
-  $q2="update projects set TITLE='$TITLE', GENRE='$GENRE', INFO='$INFO' where id=$project_id;";
+  $q2="update projects set TITLE='$TITLE', GENRE='$GENRE', PROJECT_INFO='$INFO' where id='$project_id';";
   $sql_result2=mysql_query($q2, $db_conn);          //질의(위 내용)를 수행하라.
 }
 

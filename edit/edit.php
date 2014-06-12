@@ -72,11 +72,12 @@
       <div id="time-line-height"></div>
       <div id="time-line"></div>
       <div id="tracks"></div>
+      <p>websocket state: <span id="socketState">null</span></p>
+
     </div> 
   </div> <!-- /div#editor-view -->
 </div> 
 </div> <!-- /div#app-frame -->
-<p>websocket state: <span id="socketState">null</span></p>
 
 <!-- JavaScript at the bottom for fast page loading -->
 
