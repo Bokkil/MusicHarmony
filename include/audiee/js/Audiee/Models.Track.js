@@ -41,10 +41,35 @@ define([
 		},
 
 		initClip: function() {
+		    /* var color = "#cccccc";
+		       var colorId = Audiee.Collections.Tracks.getIndexCount();
+		       console.log(colorId%5);
+		       if(colorId == 2){
+		       color = "#b6507d";
+		       } else {
+		       switch(colorId%5){
+		       case 1:
+		       color = "#c58656";
+		       break;
+		       case 2:
+		       color = "#c5b256";
+		       break;
+		       case 3:
+		       color = "#90b851";
+		       break;
+		       case 4:
+		       color = "#4d91af";
+		       break;
+		       case 0:
+		       color = "#654daf";
+		       break;
+		       }
+		       }*/
 			var clip = new ClipM({
 				name: this.get('file').name,
 				endTime: this.get('buffer').duration,
-				buffer: this.get('buffer')
+				buffer: this.get('buffer'),
+				color: this.get('color')
 			});
 			this.clips.add(clip);
 		},

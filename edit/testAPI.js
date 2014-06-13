@@ -2,13 +2,14 @@
 var srcAddress;
 
 function Network() {
-    this.URI = "ws://172.16.100.76:8080";
-    //this.URI = "ws://61.43.139.31:8080";
+    //this.URI = "ws://172.16.100.76:8080";
+    this.URI = "ws://61.43.139.31:8080";
 
     this.websocket = null;
     this.intervalId = null;
 
     this.disconnectionAsked = false;
+
 }
 
 Network.prototype.connect = function(URI) {
@@ -46,22 +47,28 @@ Network.prototype.connect = function(URI) {
         }.bind(this);
         this.websocket.onmessage = function(evt) {
             console.log(getLogDate() + "Message received :", evt.data);
-            srcAddress = 'http://172.16.100.76/uploads/music/'+evt.data;
-            //srcAddress = 'http://61.43.139.31/uploads/music/'+evt.data;
+            //srcAddress = 'http://172.16.100.76/uploads/music/' + evt.data;
+            srcAddress = 'http://61.43.139.31/uploads/music/'+evt.data;
             console.log(srcAddress);
             //displayMessage(evt.data);
             var oReq = new XMLHttpRequest();
             oReq.open("GET", srcAddress, true);
             oReq.responseType = "blob";
             oReq.onload = function(oEvent) {
-              var blob = oReq.response;
-              console.log(blob);
-              Audiee.Player.preloadFile(blob, this.el);
+                var blob = oReq.response;
+                console.log(blob);
+                Audiee.Player.preloadFile(blob, this.el);
             };
+            oReq.onloadend = function(e) {
+                //spinner.stop();
+            }
             oReq.send();
         }.bind(this);
         this.websocket.onerror = function(evt) {
             console.warn("Websocket error:", evt.data);
+        };
+        this.websocket.onprogress = function(e) {
+            //spinner.spin();
         };
         updateSocketState(this.websocket);
     } catch (exception) {
@@ -127,6 +134,9 @@ Network.prototype.checkSocket = function() {
 /////////////////////////////////////////////////
 
 // global functions
+
+
+
 function displayMessage(message) {
     chatTextArea.value += message + "\n";
     chatTextArea.scrollTop = chatTextArea.scrollHeight;
@@ -186,22 +196,22 @@ function getSoundPath(id) {
 function getParams() {
     // 파라미터가 담길 배열
     var param = new Array();
- 
+
     // 현재 페이지의 url
     var url = decodeURIComponent(location.href);
     // url이 encodeURIComponent 로 인코딩 되었을때는 다시 디코딩 해준다.
     url = decodeURIComponent(url);
- 
+
     var params;
     // url에서 '?' 문자 이후의 파라미터 문자열까지 자르기
-    params = url.substring( url.indexOf('?')+1, url.length );
+    params = url.substring(url.indexOf('?') + 1, url.length);
     // 파라미터 구분자("&") 로 분리
     params = params.split("&");
 
     // params 배열을 다시 "=" 구분자로 분리하여 param 배열에 key = value 로 담는다.
     var size = params.length;
     var key, value;
-    for(var i=0 ; i < size ; i++) {
+    for (var i = 0; i < size; i++) {
         key = params[i].split("=")[0];
         value = params[i].split("=")[1];
 
@@ -211,9 +221,9 @@ function getParams() {
 }
 
 function sendId(id) {
-  console.log(id);                
-  this.send(id);
-  console.log("Message sent :", '"' + id + '"'); 
+    console.log(id);
+    this.send(id);
+    console.log("Message sent :", '"' + id + '"');
 }
 
 function secureURI(secured) {

@@ -11,8 +11,8 @@
   <link rel="apple-touch-icon" href="/image/icon/icon_mh.png" />
 
   <!-- java script -->
-  <script type="text/javascript" src="testAPI.js"></script>
   <script src="/include/js/spin.min.js"></script>
+  <script type="text/javascript" src="testAPI.js"></script>
   <link rel="stylesheet" href="/include/css/header_edit.css">
 
   <!-- style sheet -->
