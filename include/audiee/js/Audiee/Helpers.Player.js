@@ -219,7 +219,7 @@ define([
             reader.readAsArrayBuffer(file);
         };
 
-        Player.prototype.preloadFile = function(file, el) {
+        Player.prototype.preloadFile = function(file, el, filename) {
             var reader = new FileReader,
                 that = this;
 
@@ -227,8 +227,9 @@ define([
                 if (e.target.readyState == FileReader.DONE) { // DONE == 2
                     var onsuccess = function(audioBuffer) {
                         console.log(audioBuffer);
-                        var name = 'this';
-                        Audiee.Views.Menu._filePreloaded(audioBuffer);
+                        var name = filename;
+                        console.log(file);
+                        Audiee.Views.Menu._filePreloaded(audioBuffer, filename);
                     },
                         onerror = function() {
                             //alert( "Load was error." );

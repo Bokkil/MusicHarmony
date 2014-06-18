@@ -13,6 +13,9 @@ body{
  /*text-align:center;*/
   font-family: "Nanum Gothic", sans-serif;
 }
+#container{
+  background-color: white;
+}
 .pointer{
   cursor: pointer;
 }
@@ -736,6 +739,17 @@ padding: 5px;
   cursor: pointer;
 }
 /*///////////////////////  project - info  ///////////////////////////*/
+.projectinfo-edit-btn{
+  width: 45px;
+height: auto;
+content: url("/images/main/button/user-edit-btn.png") no-repeat center;
+background-size: contain;
+/* float: right; */
+cursor: pointer;
+position: absolute;
+right: 0;
+/*margin-top: 20px;*/
+}
 #projectInfo-bar-img{
     content:url("/images/main/background/bar-projectInfo.png") no-repeat center;
   background-size: contain;
@@ -1125,7 +1139,7 @@ background-size: contain;
 cursor: pointer;
 position: absolute;
 right: 0;
-/*margin-top: -20px;*/
+margin-top: 20px;
 }
 .user-info-area > .bar-area{
   margin-top: 100px;
@@ -1151,14 +1165,17 @@ border: 0px;
   margin-top: 10px;
 }
 #user-info-change-area > .form-horizontal{
-  padding-top: 20px;
+  padding-top: 40px;
 }
 .user-info-area > .form-horizontal{
   padding-top: 20px;
 }
+.form-horizontal{
+  margin-top: -20px;
+}
 /*///////////////////////  player  ///////////////////////////*/
 #header{
-  margin-top: 40px;
+  margin-top: 20px;
 }
 #navbar-fixed-area{
   width: 100%;

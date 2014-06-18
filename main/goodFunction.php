@@ -8,8 +8,6 @@ $user_id=$_SESSION["user_id"];
 $base_dir = "/home/mh/soma/webpage";
 include("$base_dir/include/config/config.php");
 
-
-
 $q="insert into favorite (user_id, project_id) values ('$user_id', '$goodProject_id');";
 $sql_result=mysql_query($q, $db_conn);       
 

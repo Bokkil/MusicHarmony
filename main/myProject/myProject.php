@@ -11,12 +11,8 @@ header('Content-Type: text/html; charset=utf-8');
 session_cache_expire(1800);
 session_start();
 // session_unset();
-$db_host    = "localhost";
-$db_user    = "mh";
-$db_password  = "thak2014";
-$db_dbname  = "mh";
-$db_conn    = mysql_connect($db_host, $db_user, $db_password);
-mysql_select_db($db_dbname, $db_conn);
+$base_dir = "/home/mh/soma/webpage";
+include("$base_dir/include/config/config.php");
 $user_id=$_SESSION["user_id"];
 function icone_text($flag)
 {
@@ -68,7 +64,7 @@ for($i=0; $i<$count; $i++)
   $pro_dbGENRE[$i]=mysql_result($sql_result, $i, 'GENRE');
 }
 ?>
-<div class="content-left-mp">
+<div class="content-left-mp" style="margin-top: -20px;">
   <div class="bar-area">
     <img id="myProject-bar-img"></img>
   </div>
@@ -289,7 +285,7 @@ for($i=0; $i<$count; $i++)
       </div>
     </div>
 
-    <div class="side-area-panel panel panel-default right">
+    <div class="side-area-panel panel panel-default right" style="margin-top: 60px;">
       <iframe src='/main/myProject/create-project_frame.php' class="create-project-frame" id="create-project-frame" name='create-project-frame' scrolling=no></iframe>
     </div>
 

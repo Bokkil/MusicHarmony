@@ -116,13 +116,15 @@ void SocketThread::processMessage(QString message)
     JsonParser jsonparser;
     QString json = jsonparser.read(message);
     QString retMessage;
+    QStringList list;
     char retBuffer[255];
     char *retName;
+    int idx;
 
     std::cout << tr("thread 0x%1 | %2")
                  .arg(QString::number((intptr_t)QThread::currentThreadId(), 16)).arg(message).toStdString() << std::endl;
 
-    QString select = "select SOUND_PATH from sounds where id = ";
+    QString select = "select SOURCES_PATH from sources where project_id = ";
     QString query = select + message;
     const char *rawQuery = query.toStdString().c_str();
     if(mysql_query(conn,rawQuery )){
@@ -133,14 +135,30 @@ void SocketThread::processMessage(QString message)
     printf("query success\n");
 
     res = mysql_store_result(conn);
-
+    idx = mysql_num_fields(res) ;
     while( (row=mysql_fetch_row(res))!=NULL){
-      retName = strcpy(retBuffer, row[0]);
+      for( int cnt = 0 ; cnt < idx ; ++cnt){
+        retName = strcpy(retBuffer, row[cnt]);
+        list.append(row[cnt]);
+        printf("%s", retName);
+        sendMessage(retName);
+
+      }
+      printf("---\n") ;
     }
-    printf("%s\n", retName);
+    // for(int i = 0; list[i]!=NULL ; ++i){
+    //   printf("%s\n", list[i]);
+    //   //str.toStdString().c_str();
+    //   QByteArray byteName = list[i].toLocal8Bit();
+    //   retName = byteName.data();
+
+    //   //retName = list[i].toStdString().c_str();
+    //   sendMessage(retName);
+
+    // }
+
     mysql_close(conn);
 
-    sendMessage(retName);
 }
 
 /**

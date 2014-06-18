@@ -45,7 +45,8 @@ define([
             'click #m-delete': 'delete',
             'click #m-split': 'split',
             'click #m-about': 'about',
-            'click #m-help': 'help'
+            'click #m-help': 'help',
+            'click #m-save': 'save'
         },
 
         initialize: function() {
@@ -62,8 +63,8 @@ define([
                 alert('The File APIs are not fully supported in this browser.');
             }
 
-            var network = new Network();
-            network.connect();
+            this.network = new Network();
+            this.network.connect();
             var opts = {
                 lines: 13, // The number of lines to draw
                 length: 20, // The length of each line
@@ -190,23 +191,27 @@ define([
 	    var color = "#cccccc";
             var colorId = Audiee.Collections.Tracks.getIndexCount();
 	    console.log(colorId%5);
-	    switch(colorId%5){
-	    case 1:
-		color = "#c58656";
-		break;
-	    case 2:
-		color = "#c5b256";
-		break;
-	    case 3:
-		color = "#90b851";
-		break;
-	    case 4:
-		color = "#4d91af";
-		break;
-	    case 0:
-		color = "#654daf";
-		break;
-	    }
+	    console.log(colorId%6);
+        switch(colorId%6){
+        case 1:
+        color = "#b6507d";
+        break;
+        case 2:
+        color = "#c58656";
+        break;
+        case 3:
+        color = "#c5b256";
+        break;
+        case 4:
+        color = "#90b851";
+        break;
+        case 5:
+        color = "#4d91af";
+        break;
+        case 0:
+        color = "#654daf";
+        break;
+        }
             // create new Track model and add it to the Tracks collection
             track = new TrackM({
                 buffer: audioBuffer,
@@ -220,16 +225,38 @@ define([
             console.log(idx);
         },
 
-        _filePreloaded: function(audioBuffer) {
+        _filePreloaded: function(audioBuffer, filename) {
             console.log(audioBuffer);
-            var name = "test";
-	    var color = "#b6507d";
+            name = filename;
+            var color = "#cccccc";
+            var colorId = Audiee.Collections.Tracks.getIndexCount();
+            console.log(colorId%6);
+            switch(colorId%6){
+            case 1:
+            color = "#b6507d";
+            break;
+            case 2:
+            color = "#c58656";
+            break;
+            case 3:
+            color = "#c5b256";
+            break;
+            case 4:
+            color = "#90b851";
+            break;
+            case 5:
+            color = "#4d91af";
+            break;
+            case 0:
+            color = "#654daf";
+            break;
+            }
             // create new Track model and add it to the Tracks collection
             track = new TrackM({
                 buffer: audioBuffer,
                 file: name,
                 name: name,
-		color: color
+		        color: color
             });
 	    //track.clip.set('color', color);
             Audiee.Collections.Tracks.add(track);
@@ -246,11 +273,11 @@ define([
 
         stopSpinner: function() {
             console.log("test");
-	    console.log(this.$("#app-frame .spinner"));
-	    this.spinner.stop();
-	    this.$("#app-frame .spinner").empty();
-            this.$("#app-frame .spinner").remove();
-            this.$("#app-frame .spinner").hide();
+        console.log(this.$("#app-frame .spinner"));
+        this.spinner.stop();
+        this.$("#app-frame .spinner").empty();
+        this.$("#app-frame .spinner").remove();
+        this.$("#app-frame .spinner").hide();
 
         },
 
@@ -337,6 +364,22 @@ define([
             })
                 .width(680).css('max-height', 530 + 'px')
                 .modal(); // show the modal window
+        },
+
+        save: function() {
+            this.posList = [];
+            this.nameList = [];
+            console.log(Audiee.Collections.Tracks.models[0].attributes.name);
+
+            var idx = Audiee.Collections.Tracks.getIndexCount();
+            for (var i = 0 ; i < (idx-1) ; i++){
+                this.posList[i] = Audiee.Collections.Tracks.models[i].clips.models[0].attributes.trackPos;
+                this.nameList[i] = Audiee.Collections.Tracks.models[i].attributes.name;
+            }
+            console.log(this.posList);
+            console.log(this.nameList);
+            this.network.send(this.posList);
+            this.network.send(this.nameList);
         }
 
     });

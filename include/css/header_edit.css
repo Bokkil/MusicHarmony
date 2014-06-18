@@ -34,6 +34,11 @@ display: block;
  /*width: 70%;*/
  margin: 0 auto;
  padding: 0;
+ border: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-top: 1px solid transparent;
+border-bottom: 1px solid transparent;
 }
 
 .middleFullArea{
@@ -78,18 +83,20 @@ top: 0;
   background-size: 100% 100%;
   margin: 0 auto;
 }
-
+#modeChange-area{
+  text-align: center;
+  clear: both;
+}
 #modeChangeButton{
   background: url('/images/main/logo/logo.png') no-repeat center;
   border: none;
   cursor: pointer;
   background-size: contain;
-  right: 50px;
-  /*padding: 54px;*/
+  padding: 65px;
   width: 130px;
   height: 130px;
   /*margin: -112px 0px -25px 0px;*/
-  margin: 0 auto;
+  margin: 10px 0px 0px 0px;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
 }
 #modeChangeButton:hover{
@@ -101,7 +108,7 @@ top: 0;
   width: 130px;
   height: 130px;
   /*margin: -112px 0px -25px 0px;*/
-  margin: 0 auto;
+  margin: 10px 0px 0px 0px;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
 }
 /*/////// hover effect*/

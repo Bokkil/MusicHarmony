@@ -100,37 +100,32 @@ function project_master()
             $comment_user_id = mysql_result($res2,0,'id');
 
             $temp_comment="";
+
+            $sql_temp = "select TITLE from projects where id='$project_id';";
+            $res_temp = mysql_query($sql_temp);
+            $project_name = mysql_result($res_temp, 0);
+
             if($type==0)
             {
-              $sql_temp = "select TITLE from projects where id='$project_id';";
-              $res_temp = mysql_query($sql_temp);
-              $project_name = mysql_result($res_temp, 0);
+              
               $temp_comment=$content;
               // $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
               $content="'$user_name' scribbled by '$project_name'.";
             }
             else if($type==1){
-              $sql_temp = "select TITLE from projects where id='$project_id';";
-              $res_temp = mysql_query($sql_temp);
-              $project_name = mysql_result($res_temp, 0);
+              
               $content="'$user_name' like '$project_name'.";
             }
             else if($type==2){
-              $sql_temp = "select TITLE from projects where id='$project_id';";
-              $res_temp = mysql_query($sql_temp);
-              $project_name = mysql_result($res_temp, 0);
+              
               $content="'$user_name' had downloaded '$project_name's music.";
             }
             else if($type==3){
-              $sql_temp = "select TITLE from projects where id='$project_id';";
-              $res_temp = mysql_query($sql_temp);
-              $project_name = mysql_result($res_temp, 0);
+              
               $content="'$user_name's track was merged into '$project_name'.";
             }
             else if($type==4){
-              $sql_temp = "select TITLE from projects where id='$project_id';";
-              $res_temp = mysql_query($sql_temp);
-              $project_name = mysql_result($res_temp, 0);
+              
               $content="'$user_name' added track to '$project_name'.";
             }
 

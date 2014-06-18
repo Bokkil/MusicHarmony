@@ -9,7 +9,7 @@
   <script type="text/javascript" src="/include/js/myprojectform.js"></script>
 
 </head>
-<body>
+<body style="margin-top: 20px;">
 <div class="row">
   <div id="project-track" role="form" class="form-horizontal col-md-6">
     <img class="track-area-img">

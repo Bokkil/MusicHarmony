@@ -5,17 +5,10 @@ session_start();
 // session_unset();
 ?>
 <?PHP
-$db_host    = "localhost";
-$db_user    = "mh";
-$db_password  = "thak2014";
-$db_dbname  = "mh";
-$db_conn    = mysql_connect($db_host, $db_user, $db_password);
-mysql_select_db($db_dbname, $db_conn);
-// $base_dir = "/home/mh/soma/webpage";
-// include("$base_dir/include/config/config.php");
+$base_dir = "/home/mh/soma/webpage";
+include("$base_dir/include/config/config.php");
 $user_id = $_SESSION["user_id"];
 
-// $q2="select projects.*, sounds.id as sound_id, sounds.pri_user_id as sound_upload_user_id, sounds.SOUND_PATH from projects, sounds where projects.pri_user_id=$user_id and projects.id=sounds.project_id;";
 $q2="select * from projects where projects.pri_user_id=$user_id;";
 $sql_result2=mysql_query($q2, $db_conn);          //질의(위 내용)를 수행하라.
 $count2=mysql_num_rows($sql_result2);
@@ -27,8 +20,6 @@ for($i=0; $i<$count2; $i++)
   $relation_pro_dbARTIST[$i]=mysql_result($sql_result2, $i, 'ARTIST');
   $relation_pro_dbPROJECT_INFO[$i]=mysql_result($sql_result2, $i, 'PROJECT_INFO');
   $relation_pro_dbpri_user_id[$i]=mysql_result($sql_result2, $i, 'pri_user_id');
-  // $relation_pro_dbsound_id[$i]=mysql_result($sql_result2, $i, 'sound_id');
-  // $relation_pro_dbSOUND_PATH[$i]=mysql_result($sql_result2, $i, 'SOUND_PATH');
 }
 ?>
 <div class="content-left">

@@ -13,17 +13,9 @@
 
   var query_count=0;
 </script>
-
 <?PHP
-$db_host    = "localhost";
-$db_user    = "mh";
-$db_password  = "thak2014";
-$db_dbname  = "mh";
-$db_conn    = mysql_connect($db_host, $db_user, $db_password);
-mysql_select_db($db_dbname, $db_conn);
-
-// $base_dir = "/home/mh/soma/webpage";
-// include("$base_dir/include/config/config.php");
+$base_dir = "/home/mh/soma/webpage";
+include("$base_dir/include/config/config.php");
 
 $user_id = $_SESSION["user_id"];
 $q="select * from users where id=$user_id";

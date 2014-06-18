@@ -29,10 +29,6 @@ $db_dbname  = "mh";
 $db_conn    = mysql_connect($db_host, $db_user, $db_password);
 mysql_select_db($db_dbname, $db_conn);
 
-// $base_dir = "/home/mh/soma/webpage";
-// include("$base_dir/include/config/config.php");
-
-
 $user_id=$_SESSION["user_id"];
 $select_user_id=$_GET['a'];
 $q="select * from users where id=$select_user_id";

@@ -163,7 +163,7 @@ define([
 
         Display.prototype.drawSelection = function(canvas, from, length) {
             var ctx = canvas.getContext('2d');
-            ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+            ctx.fillStyle = 'rgba(100, 100, 100, 0.6)';
             ctx.fillRect(from, 0, length, canvas.height);
         };    
 

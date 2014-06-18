@@ -11,20 +11,25 @@
  */
 
 require.config({
-	paths: {
-		// libs
-		jquery    	: 'libs/jquery/jquery',
-		drag_resize	: 'libs/jquery/jquery-ui.custom.min',
-		underscore 	: 'libs/underscore/underscore-min',
-		backbone  	: 'libs/backbone/backbone',
-		
-		// plugins
-		text 		: 'libs/require/text',
-		order		: 'libs/require/order',
-		plugins		: 'libs/bootstrap'
-	},
+    paths: {
+        // libs
+        jquery: 'libs/jquery/jquery',
+        drag_resize: 'libs/jquery/jquery-ui.custom.min',
+        underscore: 'libs/underscore/underscore-min',
+        backbone: 'libs/backbone/backbone',
+
+        // plugins
+        text: 'libs/require/text',
+        order: 'libs/require/order',
+        plugins: 'libs/bootstrap'
+    },
+    shim: {
+        'bootstrap': {
+            deps: ['jquery']
+        }
+    }
 });
 
 require(['app'], function(App) {
-	App.initialize();
+    App.initialize();
 });

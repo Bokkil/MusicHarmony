@@ -16,18 +16,16 @@
   <link rel="stylesheet" href="/include/css/header_edit.css">
 
   <!-- style sheet -->
-  <!-- <link rel="stylesheet" href="/include/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/include/css/bootstrap-theme.min.css">
+<!--  <link rel="stylesheet" href="/include/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/include/css/bootstrap-theme.min.css"> -->
 
--->
+    <link rel="stylesheet/less" href="/include/audiee/less/style3.css">
+    <script src="/include/audiee/js/libs/less-1.2.2.js"></script>
+    <link rel="stylesheet" href="/include/css/header_edit.css">
 
 </head>
 
 <body>
-    <link rel="stylesheet/less" href="/include/audiee/less/style3.css">
-    <script src="/include/audiee/js/libs/less-1.2.2.js"></script>
-<!-- <link rel="stylesheet" href="/include/css/layout.css">
--->
 
 <!--   
   <?PHP
@@ -42,8 +40,10 @@
   <div id="topBanner-extention" class="topBanner-height">
   
   <div id="topBanner" class="navbar-inner">
-    <div id="modeChange-area">
-      <img id="modeChangeButton" class="tilt modeChangeButton" TITLE="Mode Change"></img>
+    <div class="middleArea">
+      <div id="modeChange-area">
+        <img id="modeChangeButton" class="tilt modeChangeButton" TITLE="Mode Change"></img>
+      </div>
     </div>
   </div>
     <div class="container-fluid">

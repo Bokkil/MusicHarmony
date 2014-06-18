@@ -9,7 +9,6 @@ $db_dbname  = "mh";
 $db_conn    = mysql_connect($db_host, $db_user, $db_password);
 mysql_select_db($db_dbname, $db_conn);
 
-
 extract($_POST);
 $user_id=$_SESSION["user_id"];
 $NAME=$_POST["NICKNAME"];

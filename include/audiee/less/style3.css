@@ -31,7 +31,7 @@ body {
 
 // variables
 @navbarHeight:    150px;
-@trackHeight:     120px;
+@trackHeight:     130px;
 @infoWidth:       200px;
 @infoHeight:      @trackHeight;
 @timelineHeight:  50px;
@@ -81,7 +81,7 @@ body {
   #playback-controls {
     width: 290px;
     min-width: 290px;
-    margin: 1px 60% 0 30%;
+    margin: 1px 30% 0 45%;
     .noTextSelection;
 
     .playing {
@@ -188,7 +188,7 @@ body {
     }
 
     .track-controls {
-      height: 90px;
+      height: 100px;
 
       .volume {
         width: 100px;
@@ -208,7 +208,7 @@ body {
       background-color: #eee;
 
       .display-wrapper {
-        height: @trackHeight - 20;
+        height: @trackHeight - 30;
         position: absolute;
         top: 30px;
         background-color: hsla(0, 0%, 78%, 0.2);
@@ -285,7 +285,7 @@ body {
         }
 
         .clip-display {
-          height: 120px;
+          height: 130px;
           border-left: 1px solid @grayLight;
           border-right: 1px solid @grayLight;
 

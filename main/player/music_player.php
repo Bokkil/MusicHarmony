@@ -3,6 +3,7 @@
 session_cache_expire(1800);
 // session_start();
 // session_unset();
+// array_pop($_SESSION['play_pro_title']);//($_SESSION['play_pro_title'][0]);
 ?>
 <!-- player -->
 <!-- <link type="text/css" href="/include/css/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" /> -->
@@ -127,7 +128,6 @@ function session_play_add_source(playid, playtitle, playartist, playmp3){
     }); 
   }); 
 }
-
 var temp_play_pro_id = new Array();
 var temp_play_pro_title = new Array();
 var temp_play_pro_artist = new Array();
@@ -135,28 +135,20 @@ var temp_play_pro_path = new Array();
 var temp_play_source = new Array();
 </script>
 <?PHP
-// function unset_playlist($num)
-// {
-//   unset($_SESSION['play_pro_id'][$num]);
-//   unset($_SESSION['play_pro_title'][$num]);
-//   unset($_SESSION['play_pro_artist'][$num]);
-//   unset($_SESSION['temp_play_source'][$num]);
-// }
-
 if ( !isset($_SESSION['play_pro_id']) ) {
-    $_SESSION['play_pro_id'] = array();
+    session_register( $_SESSION['play_pro_id'] = array());
 } 
 if ( !isset($_SESSION['play_pro_title']) ) { 
-     
+    session_register( $_SESSION['play_pro_title'] = array()); 
 } 
 if ( !isset($_SESSION['play_pro_artist']) ) { 
-    $_SESSION['play_pro_artist'] = array(); 
+    session_register( $_SESSION['play_pro_artist'] = array()); 
 }
 if ( !isset($_SESSION['play_pro_path']) ) { 
-    $_SESSION['play_pro_path'] = array(); 
+    session_register( $_SESSION['play_pro_path'] = array()); 
 }
 if ( !isset($_SESSION['temp_play_source']) ) { 
-    $_SESSION['temp_play_source'] = array(); 
+    session_register( $_SESSION['temp_play_source'] = array()); 
 }
 // sound=> 0, source=1;
 

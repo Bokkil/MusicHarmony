@@ -47,8 +47,8 @@ Network.prototype.connect = function(URI) {
         }.bind(this);
         this.websocket.onmessage = function(evt) {
             console.log(getLogDate() + "Message received :", evt.data);
-            //srcAddress = 'http://172.16.100.76/uploads/music/' + evt.data;
-            srcAddress = 'http://61.43.139.31/uploads/music/'+evt.data;
+            //srcAddress = 'http://172.16.100.76/uploads/source/' + evt.data;
+            srcAddress = 'http://61.43.139.31/uploads/source/'+evt.data;
             console.log(srcAddress);
             //displayMessage(evt.data);
             var oReq = new XMLHttpRequest();
@@ -57,7 +57,7 @@ Network.prototype.connect = function(URI) {
             oReq.onload = function(oEvent) {
                 var blob = oReq.response;
                 console.log(blob);
-                Audiee.Player.preloadFile(blob, this.el);
+                Audiee.Player.preloadFile(blob, this.el, evt.data);
             };
             oReq.onloadend = function(e) {
                 //spinner.stop();

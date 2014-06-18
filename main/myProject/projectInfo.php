@@ -113,7 +113,7 @@ for($j=0; $j<$q_temp_count; $j++)
           if ($user_id==$pro_dbpri_user_id){
             echo("
           <div class=\"col-xs-6\">$pro_dbTITLE</div>
-          <div class=\"col-xs-2\"><img id=\"project-edit-btn\" onclick=\"project_edit_mode($pro_dbid);\" class=\"user-edit-btn\"></div>     
+          <div class=\"col-xs-2\"><img id=\"project-edit-btn\" onclick=\"project_edit_mode($pro_dbid);\" class=\"projectinfo-edit-btn\"></div>     
           ");
           }
           else{

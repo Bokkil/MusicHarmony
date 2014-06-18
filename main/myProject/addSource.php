@@ -12,7 +12,7 @@
 	$valid_extension = array('.mp3', '.mp4', '.wav');
 	$file_extension = strtolower( strrchr( $_FILES["userfile"]["name"], "." ) );
 
-	if( in_array( $file_extension, $valid_extension ) &&  $_FILES["userfile"]['size'] < 20971520)
+	if( in_array( $file_extension, $valid_extension ) &&  $_FILES["userfile"]['size'] < 104857600)
 	{
     echo("<pre>");
 		if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) 
@@ -41,18 +41,8 @@
 	}
 	else
 	{
-	    echo("<script>alert(\"Please upload only audio files and smaller file size than 20M\");
+	    echo("<script>alert(\"Please upload only audio files and smaller file size than 100M\");
 	    	window.location=\"/main/myProject/projectBottom.php\";
 	    	</script>");		
 	}
-
-
-	// session_start();
-	// $project_id = $_SESSION['project_id'];
-	// $user_id = $_SESSION['user_id'];
-	// $comment = $_REQUEST['comment'];
-	// $sql = "Insert into sources (pri_user_id,created_at,project_id,COMMENT) values('$user_id',NOW(),'$project_id','$comment')";
-	// $res = mysql_query($sql);
-
-	// header("Location: /main/myProject/projectBottom.php");
 ?>
